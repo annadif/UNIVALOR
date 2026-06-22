@@ -447,10 +447,11 @@ function Navbar() {
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
         <button onClick={() => scrollTo("#accueil")} className="flex-shrink-0">
-          <ImageWithFallback
+          <img
             src={logoImg}
             alt="Logo UNIVALORSA"
             className="h-10 w-auto object-contain"
+            fetchPriority="high"
           />
         </button>
 
@@ -552,6 +553,8 @@ function Hero() {
                         src={slide.img}
                         alt={slide.alt}
                         className="h-[260px] w-full object-cover sm:h-[360px] lg:h-[430px]"
+                        fetchPriority="high"
+                        decoding="async"
                       />
                     </CarouselItem>
                   ))}
@@ -643,6 +646,7 @@ function About() {
                 src={aboutMainImg}
                 alt="Structure UNIVALORSA"
                 className="w-full h-72 object-cover border border-border"
+                loading="lazy"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -650,11 +654,13 @@ function About() {
                 src={aboutSmallImg1}
                 alt="Détails structure"
                 className="w-full h-36 object-cover border border-border"
+                loading="lazy"
               />
               <img
                 src={aboutSmallImg2}
                 alt="Détails structure"
                 className="w-full h-36 object-cover border border-border"
+                loading="lazy"
               />
             </div>
             <div className="mt-4 bg-primary px-5 py-4 flex items-center gap-3">
@@ -950,6 +956,7 @@ function Structure() {
                     src={methodologyImg} 
                     alt="Planification et méthodologie professionnelle UNIVALOR" 
                     className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                    loading="lazy"
                   />
                 </div>
                 {/* Decorative frames */}
@@ -1024,6 +1031,7 @@ function Realisations() {
                               src={src}
                               alt={`${item.title} - ${i + 1}`}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              loading="lazy"
                             />
                           </CarouselItem>
                         ))}
@@ -1036,6 +1044,7 @@ function Realisations() {
                       src={item.images[0]}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
                     />
                   )}
                   <div className="absolute top-0 right-0 bg-accent text-primary text-[10px] font-bold px-4 py-2 uppercase tracking-widest shadow-lg">
@@ -1249,6 +1258,7 @@ function Domains() {
                             src={src}
                             alt={`${competence.title} - illustration ${index + 1}`}
                             className="h-40 w-full object-cover"
+                            loading="lazy"
                           />
                         </CarouselItem>
                       ))}
@@ -1474,6 +1484,7 @@ function Formations() {
                             src={src}
                             alt={`${f.title} - ${i + 1}`}
                             className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
+                            loading="lazy"
                           />
                         </CarouselItem>
                       ))}
@@ -1664,6 +1675,7 @@ function Footer() {
                 src={logoImg}
                 alt="Logo UNIVALORSA"
                 className="h-16 w-auto object-contain"
+                loading="lazy"
               />
             </div>
             <p className="font-['Inter'] text-sm text-white/70 leading-relaxed max-w-sm mb-6">
