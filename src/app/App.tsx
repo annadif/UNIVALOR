@@ -507,34 +507,33 @@ function Navbar() {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section id="accueil" className="pt-[104px] lg:pt-[72px]">
+    <section id="accueil" className="pt-[88px] lg:pt-[72px]">
       {/* Blue header band */}
       <div className="bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-24">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             <div className="lg:col-span-6 max-w-3xl">
-            <p className="font-['Inter'] text-xs font-semibold tracking-widest text-accent uppercase mb-5">
+            <p className="font-['Inter'] text-[10px] lg:text-xs font-semibold tracking-widest text-accent uppercase mb-3 lg:mb-5">
               Université de N'Djaména — Tchad
             </p>
-            <h1 className="font-['Merriweather'] text-3xl lg:text-5xl font-bold text-white leading-snug mb-6">
+            <h1 className="font-['Merriweather'] text-2xl lg:text-5xl font-bold text-white leading-tight mb-4 lg:mb-6">
               La valorisation du savoir universitaire<br />
               au service du développement
             </h1>
-            <p className="font-['Inter'] text-base text-white/75 leading-relaxed max-w-xl mb-10">
+            <p className="font-['Inter'] text-sm lg:text-base text-white/75 leading-relaxed max-w-xl mb-6 lg:mb-10">
               UNIVALORSA est la société officielle de valorisation des ressources de l'Université
-              de N'Djaména. Nous transformons la recherche académique en solutions opérationnelles
-              pour le développement économique et social du Tchad.
+              de N'Djaména. Nous transformons la recherche académique en solutions opérationnelles.
             </p>
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => scrollTo("#missions")}
-                className="inline-flex items-center gap-2 bg-accent text-foreground font-['Inter'] text-sm font-semibold px-6 py-3 hover:bg-accent/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-accent text-foreground font-['Inter'] text-xs lg:text-sm font-semibold px-5 py-2.5 lg:px-6 lg:py-3 hover:bg-accent/90 transition-colors"
               >
-                Nos missions <ArrowRight size={15} />
+                Nos missions <ArrowRight size={14} />
               </button>
               <button
                 onClick={() => scrollTo("#apropos")}
-                className="inline-flex items-center gap-2 border border-white/30 text-white font-['Inter'] text-sm font-medium px-6 py-3 hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-white/30 text-white font-['Inter'] text-xs lg:text-sm font-medium px-5 py-2.5 lg:px-6 lg:py-3 hover:bg-white/10 transition-colors"
               >
                 En savoir plus
               </button>
@@ -544,7 +543,7 @@ function Hero() {
             <div className="lg:col-span-6">
               <Carousel
                 opts={{ loop: HERO_SLIDES.length > 1 }}
-                className="overflow-hidden border border-white/15 shadow-2xl shadow-black/20"
+                className="overflow-hidden border border-white/15 shadow-xl"
               >
                 <CarouselContent className="-ml-0">
                   {HERO_SLIDES.map((slide) => (
@@ -552,7 +551,7 @@ function Hero() {
                       <img
                         src={slide.img}
                         alt={slide.alt}
-                        className="h-[260px] w-full object-cover sm:h-[360px] lg:h-[430px]"
+                        className="h-[200px] w-full object-cover sm:h-[300px] lg:h-[430px]"
                         fetchPriority="high"
                         decoding="async"
                       />
@@ -570,13 +569,13 @@ function Hero() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
             {STATS.map((s) => (
-              <div key={s.label} className="flex items-center gap-4 px-6 py-6">
-                <div className="w-10 h-10 bg-secondary flex items-center justify-center flex-shrink-0">
-                  <s.icon size={18} className="text-primary" />
+              <div key={s.label} className="flex items-center gap-3 lg:gap-4 px-4 py-4 lg:px-6 lg:py-6">
+                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-secondary flex items-center justify-center flex-shrink-0">
+                  <s.icon size={16} className="text-primary" />
                 </div>
                 <div>
-                  <div className="font-['Merriweather'] text-2xl font-bold text-primary leading-none">{s.value}</div>
-                  <div className="font-['Inter'] text-xs text-muted-foreground mt-1">{s.label}</div>
+                  <div className="font-['Merriweather'] text-xl lg:text-2xl font-bold text-primary leading-none">{s.value}</div>
+                  <div className="font-['Inter'] text-[10px] lg:text-xs text-muted-foreground mt-0.5 lg:mt-1">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -590,7 +589,7 @@ function Hero() {
 // ─── À propos ─────────────────────────────────────────────────────────────────
 function About() {
   return (
-    <section id="apropos" className="py-20 bg-white">
+    <section id="apropos" className="py-12 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <div className="flex items-center gap-3 mb-2">
@@ -599,76 +598,54 @@ function About() {
             Qui sommes-nous
           </span>
         </div>
-        <div className="grid lg:grid-cols-2 gap-14 items-start mt-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start mt-8 lg:mt-10">
           <div>
-            <h2 className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug mb-6">
-              Une institution au cœur de l'innovation universitaire
+            <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug mb-4 lg:mb-6">
+              Une institution au cœur de l'innovation
             </h2>
-            <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed mb-5">
+            <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed mb-4">
               Créée sous l'égide de l'Université de N'Djaména, <strong className="text-foreground">UNIVALORSA</strong> est
-              l'interface privilégiée entre la recherche académique et les acteurs économiques et
-              institutionnels du Tchad et de la sous-région.
+              l'interface privilégiée entre la recherche académique et les acteurs économiques.
             </p>
-            <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed mb-8">
-              Notre vocation est de mettre le patrimoine scientifique et intellectuel de l'Université
-              au service des défis concrets du développement : agriculture, santé, énergie, gouvernance,
-              environnement et innovation technologique.
+            <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed mb-6 lg:mb-8">
+              Notre vocation est de mettre le patrimoine scientifique au service des défis du développement.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
               {[
-                { titre: "Notre Mission", texte: "Valoriser les travaux universitaires en les transformant en solutions applicables pour les secteurs public et privé." },
-                { titre: "Notre Vision", texte: "Faire de l'Université de N'Djaména un acteur central de l'économie du savoir en Afrique centrale." },
+                { titre: "Notre Mission", texte: "Valoriser les travaux universitaires pour les secteurs public et privé." },
+                { titre: "Notre Vision", texte: "Faire de l'université un acteur central de l'économie du savoir." },
               ].map(({ titre, texte }) => (
                 <div key={titre} className="border-l-2 border-primary pl-4">
-                  <h4 className="font-['Merriweather'] font-bold text-primary text-base mb-2">{titre}</h4>
-                  <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">{texte}</p>
+                  <h4 className="font-['Merriweather'] font-bold text-primary text-base mb-1 lg:mb-2">{titre}</h4>
+                  <p className="font-['Inter'] text-xs lg:text-sm text-muted-foreground leading-relaxed">{texte}</p>
                 </div>
               ))}
             </div>
-
-            <div className="mt-8">
-              <h4 className="font-['Inter'] text-sm font-semibold text-foreground mb-4">Nos valeurs fondamentales</h4>
-              <ul className="space-y-2">
-                {["Excellence académique", "Intégrité et transparence", "Engagement envers le développement", "Innovation responsable"].map(v => (
-                  <li key={v} className="flex items-center gap-3">
-                    <CheckCircle2 size={16} className="text-primary flex-shrink-0" />
-                    <span className="font-['Inter'] text-sm text-muted-foreground">{v}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
-          <div>
-            <div className="overflow-hidden mb-4">
+          <div className="mt-4 lg:mt-0">
+            <div className="overflow-hidden mb-3 lg:mb-4">
               <img
                 src={aboutMainImg}
                 alt="Structure UNIVALORSA"
-                className="w-full h-72 object-cover border border-border"
+                className="w-full h-48 lg:h-72 object-cover border border-border"
                 loading="lazy"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
               <img
                 src={aboutSmallImg1}
                 alt="Détails structure"
-                className="w-full h-36 object-cover border border-border"
+                className="w-full h-28 lg:h-36 object-cover border border-border"
                 loading="lazy"
               />
               <img
                 src={aboutSmallImg2}
                 alt="Détails structure"
-                className="w-full h-36 object-cover border border-border"
+                className="w-full h-28 lg:h-36 object-cover border border-border"
                 loading="lazy"
               />
-            </div>
-            <div className="mt-4 bg-primary px-5 py-4 flex items-center gap-3">
-              <div className="w-1 h-10 bg-accent flex-shrink-0" />
-              <p className="font-['Inter'] text-xs text-white/80 leading-relaxed">
-                Société à capitaux publics opérant sous le régime des établissements de valorisation
-                universitaire, conformément à la réglementation tchadienne.
-              </p>
             </div>
           </div>
         </div>
@@ -680,7 +657,7 @@ function About() {
 // ─── Structure ────────────────────────────────────────────────────────────────
 function Structure() {
   return (
-    <section id="structure" className="py-24 bg-white overflow-hidden">
+    <section id="structure" className="py-12 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -694,47 +671,44 @@ function Structure() {
           </span>
         </motion.div>
         
-        <div className="mt-10 mb-20">
+        <div className="mt-8 lg:mt-10 mb-12 lg:mb-20">
           <motion.h2 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug mb-12"
+            className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug mb-8 lg:mb-12"
           >
             L'organisation institutionnelle
           </motion.h2>
           
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="lg:col-span-7 bg-secondary p-8 lg:p-10 border border-border relative overflow-hidden"
+              className="lg:col-span-7 bg-secondary p-6 lg:p-10 border border-border relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-10 -mt-10" />
-              <h3 className="font-['Merriweather'] text-xl font-bold text-primary mb-6">Statut Juridique</h3>
-              <div className="space-y-6 relative z-10">
-                <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">
-                  Société anonyme au capital de <strong className="text-primary">10 000 000 FCFA</strong>, filiale de l’Université de N’Djamena qui lui délègue toutes les actions de valorisation contractuelles.
+              <h3 className="font-['Merriweather'] text-lg lg:text-xl font-bold text-primary mb-4 lg:mb-6">Statut Juridique</h3>
+              <div className="space-y-4 lg:space-y-6 relative z-10">
+                <p className="font-['Inter'] text-xs lg:text-sm text-muted-foreground leading-relaxed">
+                  Société anonyme au capital de <strong className="text-primary">10 000 000 FCFA</strong>, filiale de l’Université de N’Djamena.
                 </p>
-                <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">
-                  C’est en s’inspirant des expériences d’<strong className="text-primary">INSAVALOR</strong> (filiale de l’INSA de Lyon) dans le domaine de la formation continue et d’expertise que UNIVALOR SA a été créée.
-                </p>
-                <div className="flex items-center gap-5 bg-white p-5 border border-border shadow-sm">
-                  <div className="w-14 h-14 bg-primary flex items-center justify-center text-accent shadow-inner">
-                    <Calendar size={28} strokeWidth={1.5} />
+                <div className="flex items-center gap-4 bg-white p-4 lg:p-5 border border-border shadow-sm">
+                  <div className="w-10 h-10 lg:w-14 lg:h-14 bg-primary flex items-center justify-center text-accent shadow-inner">
+                    <Calendar size={22} lg:size={28} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div className="font-['Inter'] text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-1">Fondation</div>
-                    <div className="font-['Merriweather'] text-xl font-bold text-primary">03 mars 2001</div>
+                    <div className="font-['Inter'] text-[9px] lg:text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-0.5 lg:mb-1">Fondation</div>
+                    <div className="font-['Merriweather'] text-base lg:text-xl font-bold text-primary">03 mars 2001</div>
                   </div>
                 </div>
               </div>
             </motion.div>
             
             <div className="lg:col-span-5">
-              <h3 className="font-['Merriweather'] text-xl font-bold text-primary mb-8">Répartition du Capital</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <h3 className="font-['Merriweather'] text-lg lg:text-xl font-bold text-primary mb-6 lg:mb-8">Répartition du Capital</h3>
+              <div className="grid grid-cols-2 gap-3 lg:gap-4">
                 {CAPITAL_DISTRIBUTION.map((item, idx) => (
                   <motion.div 
                     key={item.stakeholder}
@@ -742,16 +716,13 @@ function Structure() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="bg-white p-6 border border-border shadow-sm hover:border-accent group transition-all duration-300 relative overflow-hidden"
+                    className="bg-white p-4 lg:p-6 border border-border shadow-sm group relative overflow-hidden"
                   >
-                    <div className="absolute -bottom-4 -right-4 text-primary/5 group-hover:text-accent/10 transition-colors">
-                      <item.icon size={80} strokeWidth={1} />
+                    <div className="text-accent mb-2 lg:mb-4 group-hover:scale-110 transition-transform origin-left">
+                      <item.icon size={24} lg:size={32} strokeWidth={1.5} />
                     </div>
-                    <div className="text-accent mb-4 group-hover:scale-110 transition-transform origin-left">
-                      <item.icon size={32} strokeWidth={1.5} />
-                    </div>
-                    <div className="font-['Merriweather'] text-3xl font-bold text-primary mb-2">{item.percentage}</div>
-                    <p className="font-['Inter'] text-[11px] text-muted-foreground font-semibold leading-tight uppercase tracking-wider">
+                    <div className="font-['Merriweather'] text-2xl lg:text-3xl font-bold text-primary mb-1 lg:mb-2">{item.percentage}</div>
+                    <p className="font-['Inter'] text-[9px] lg:text-[11px] text-muted-foreground font-semibold leading-tight uppercase tracking-wider">
                       {item.stakeholder}
                     </p>
                   </motion.div>
@@ -762,15 +733,15 @@ function Structure() {
         </div>
 
         {/* Organigramme */}
-        <div className="mt-32 pb-20">
+        <div className="mt-16 lg:mt-32 pb-10 lg:pb-20">
           <motion.div
              initial={{ opacity: 0, y: 30 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="text-center mb-20"
+             className="text-center mb-12 lg:mb-20"
           >
-            <h3 className="font-['Merriweather'] text-2xl lg:text-3xl font-bold text-primary mb-4">Structure Organisationnelle</h3>
-            <div className="w-16 h-1 bg-accent mx-auto" />
+            <h3 className="font-['Merriweather'] text-xl lg:text-3xl font-bold text-primary mb-3 lg:mb-4">Structure Organisationnelle</h3>
+            <div className="w-12 lg:w-16 h-1 bg-accent mx-auto" />
           </motion.div>
 
           <div className="relative flex flex-col items-center">
@@ -988,7 +959,7 @@ function Realisations() {
   const visibleRealisations = showAll ? REALISATIONS : REALISATIONS.slice(0, 3);
 
   return (
-    <section id="realisations" className="py-24 bg-secondary overflow-hidden">
+    <section id="realisations" className="py-12 lg:py-24 bg-secondary overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -1002,17 +973,17 @@ function Realisations() {
           </span>
         </motion.div>
         
-        <div className="mt-10">
+        <div className="mt-8 lg:mt-10">
           <motion.h2 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug mb-16"
+            className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug mb-10 lg:mb-16"
           >
             Nos Réalisations Récentes
           </motion.h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {visibleRealisations.map((item, idx) => (
               <motion.div
                 key={item.title + item.date}
@@ -1052,18 +1023,18 @@ function Realisations() {
                   </div>
                 </div>
                 
-                <div className="p-8 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 mb-4">
+                <div className="p-6 lg:p-8 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-3 lg:mb-4">
                     <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                    <span className="font-['Inter'] text-[10px] font-bold text-primary uppercase tracking-[0.2em]">
+                    <span className="font-['Inter'] text-[9px] lg:text-[10px] font-bold text-primary uppercase tracking-[0.2em]">
                       Projet de Valorisation
                     </span>
                   </div>
-                  <h3 className="font-['Merriweather'] text-base font-bold text-primary leading-relaxed mb-6 flex-1">
+                  <h3 className="font-['Merriweather'] text-sm lg:text-base font-bold text-primary leading-relaxed mb-4 lg:mb-6 flex-1">
                     {item.title}
                   </h3>
-                  <div className="pt-6 border-t border-border flex items-center justify-between mt-auto">
-                    <span className="font-['Inter'] text-[11px] text-muted-foreground font-medium">
+                  <div className="pt-4 lg:pt-6 border-t border-border flex items-center justify-between mt-auto">
+                    <span className="font-['Inter'] text-[10px] lg:text-[11px] text-muted-foreground font-medium">
                       UNIVALOR S.A · {item.date.split('-')[0]}
                     </span>
                     <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
@@ -1076,10 +1047,10 @@ function Realisations() {
           </div>
 
           {!showAll && REALISATIONS.length > 3 && (
-            <div className="mt-16 text-center">
+            <div className="mt-10 lg:mt-16 text-center">
               <button
                 onClick={() => setShowAll(true)}
-                className="inline-flex items-center gap-2 bg-primary text-white font-['Inter'] text-sm font-semibold px-8 py-4 hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20"
+                className="inline-flex items-center gap-2 bg-primary text-white font-['Inter'] text-xs lg:text-sm font-semibold px-6 py-3 lg:px-8 lg:py-4 hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20"
               >
                 Toutes nos réalisations <ArrowRight size={16} />
               </button>
@@ -1094,7 +1065,7 @@ function Realisations() {
 // ─── Missions ─────────────────────────────────────────────────────────────────
 function Missions() {
   return (
-    <section id="missions" className="py-20 bg-secondary">
+    <section id="missions" className="py-12 lg:py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-8 h-1 bg-accent" />
@@ -1102,29 +1073,29 @@ function Missions() {
             Ce que nous faisons
           </span>
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-12">
-          <h2 className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug max-w-lg">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-8 lg:mb-12">
+          <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug max-w-lg">
             Nos missions fondamentales
           </h2>
-          <p className="font-['Inter'] text-sm text-muted-foreground max-w-sm leading-relaxed">
+          <p className="font-['Inter'] text-xs lg:text-sm text-muted-foreground max-w-sm leading-relaxed">
             Quatre axes stratégiques pour faire du savoir un levier de développement concret et durable.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {MISSIONS.map((m, i) => (
             <div
               key={m.title}
-              className="bg-white border border-border p-6 hover:shadow-md hover:border-primary/30 transition-all duration-200 group"
+              className="bg-white border border-border p-5 lg:p-6 hover:shadow-md transition-all duration-200 group"
             >
-              <div className="w-11 h-11 bg-primary/8 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors duration-200">
-                <m.icon size={20} className="text-primary group-hover:text-white transition-colors" />
+              <div className="w-10 h-10 lg:w-11 lg:h-11 bg-primary/8 flex items-center justify-center mb-4 lg:mb-5 group-hover:bg-primary group-hover:text-white transition-colors duration-200">
+                <m.icon size={18} lg:size={20} className="text-primary group-hover:text-white transition-colors" />
               </div>
-              <div className="font-['Inter'] text-xs font-semibold text-accent mb-2">0{i + 1}</div>
-              <h3 className="font-['Merriweather'] text-base font-bold text-primary mb-3 leading-snug">
+              <div className="font-['Inter'] text-[10px] lg:text-xs font-semibold text-accent mb-1 lg:mb-2">0{i + 1}</div>
+              <h3 className="font-['Merriweather'] text-sm lg:text-base font-bold text-primary mb-2 lg:mb-3 leading-snug">
                 {m.title}
               </h3>
-              <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">
+              <p className="font-['Inter'] text-[11px] lg:text-sm text-muted-foreground leading-relaxed">
                 {m.description}
               </p>
             </div>
@@ -1138,7 +1109,7 @@ function Missions() {
 // ─── Domaines ─────────────────────────────────────────────────────────────────
 function SuccessFactors() {
   return (
-    <section className="py-20 bg-white border-b border-border">
+    <section className="py-12 lg:py-20 bg-white border-b border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-8 h-1 bg-accent" />
@@ -1146,26 +1117,25 @@ function SuccessFactors() {
             Documentation institutionnelle
           </span>
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-12">
-          <h2 className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-8 lg:mb-12">
+          <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug">
             Facteurs de réussite
           </h2>
-          <p className="font-['Inter'] text-sm text-muted-foreground max-w-md leading-relaxed">
-            L'expérience UNIVALOR S.A repose sur une organisation autonome, une gouvernance
-            claire et une insertion active dans le tissu socioéconomique du Tchad.
+          <p className="font-['Inter'] text-xs lg:text-sm text-muted-foreground max-w-md leading-relaxed">
+            L'expérience UNIVALOR S.A repose sur une organisation autonome et une gouvernance claire.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-7 border border-border bg-secondary p-7 lg:p-8">
-            <h3 className="font-['Merriweather'] text-xl font-bold text-primary mb-6">
-              Les principes qui guident l'action
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+          <div className="lg:col-span-7 border border-border bg-secondary p-6 lg:p-8">
+            <h3 className="font-['Merriweather'] text-lg lg:text-xl font-bold text-primary mb-4 lg:mb-6">
+              Les principes directeurs
             </h3>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-3 lg:gap-4">
               {SUCCESS_FACTORS.map((factor) => (
-                <div key={factor} className="flex gap-3 bg-white border border-border p-4">
-                  <CheckCircle2 size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                  <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">
+                <div key={factor} className="flex gap-3 bg-white border border-border p-3 lg:p-4">
+                  <CheckCircle2 size={16} className="text-primary flex-shrink-0 mt-0.5" />
+                  <p className="font-['Inter'] text-[11px] lg:text-sm text-muted-foreground leading-relaxed">
                     {factor}
                   </p>
                 </div>
@@ -1173,16 +1143,16 @@ function SuccessFactors() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-primary text-white p-7 lg:p-8">
-              <h3 className="font-['Merriweather'] text-xl font-bold mb-5">
+          <div className="lg:col-span-5 space-y-4 lg:space-y-6">
+            <div className="bg-primary text-white p-6 lg:p-8">
+              <h3 className="font-['Merriweather'] text-lg lg:text-xl font-bold mb-4 lg:mb-5">
                 Une expérience unique
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 lg:space-y-4">
                 {UNIQUE_EXPERIENCE.map((item) => (
                   <div key={item} className="flex gap-3">
-                    <ChevronRight size={18} className="text-accent flex-shrink-0 mt-0.5" />
-                    <p className="font-['Inter'] text-sm text-white/80 leading-relaxed">
+                    <ChevronRight size={16} className="text-accent flex-shrink-0 mt-0.5" />
+                    <p className="font-['Inter'] text-xs lg:text-sm text-white/80 leading-relaxed">
                       {item}
                     </p>
                   </div>
@@ -1190,14 +1160,12 @@ function SuccessFactors() {
               </div>
             </div>
 
-            <div className="border-l-4 border-accent bg-white p-7 shadow-sm">
-              <p className="font-['Merriweather'] text-xl lg:text-2xl font-bold text-primary leading-snug mb-4">
-                Il n'y a pas d'université prospère dans un désert économique, tout comme il
-                n'y a pas de régions à forte croissance économique sans une université forte
-                et dynamique.
+            <div className="border-l-4 border-accent bg-white p-5 lg:p-7 shadow-sm">
+              <p className="font-['Merriweather'] text-lg lg:text-2xl font-bold text-primary leading-snug mb-3 lg:mb-4">
+                "Votre savoir-faire, nous allons le faire savoir."
               </p>
-              <p className="font-['Inter'] text-sm font-semibold uppercase tracking-widest text-primary">
-                Votre savoir-faire, nous allons le faire savoir.
+              <p className="font-['Inter'] text-[10px] lg:text-sm font-semibold uppercase tracking-widest text-primary">
+                UNIVALOR S.A
               </p>
             </div>
           </div>
@@ -1219,7 +1187,7 @@ function Domains() {
   });
 
   return (
-    <section id="domaines" className="py-20 bg-white">
+    <section id="domaines" className="py-12 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-8 h-1 bg-accent" />
@@ -1227,29 +1195,28 @@ function Domains() {
             Domaines d'intervention
           </span>
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-12">
-          <h2 className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug">
-            Compétences des laboratoires et départements
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-8 lg:mb-12">
+          <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug">
+            Compétences des laboratoires
           </h2>
-          <p className="font-['Inter'] text-sm text-muted-foreground max-w-sm leading-relaxed">
-            Notre équipe pluridisciplinaire intervient dans de nombreux secteurs en s'appuyant
-            sur la richesse des unités de recherche de l'Université.
+          <p className="font-['Inter'] text-[11px] lg:text-sm text-muted-foreground max-w-sm leading-relaxed">
+            Notre équipe pluridisciplinaire intervient dans de nombreux secteurs stratégiques.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-14">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 mb-10 lg:mb-14">
           {sortedCompetences.map((competence) => {
             const images = getCompetenceImages(competence.title);
 
             return (
               <article
                 key={competence.title}
-                className="border border-border bg-white p-5 hover:border-primary/35 hover:shadow-md transition-all duration-200"
+                className="border border-border bg-white p-4 lg:p-5 hover:border-primary/35 hover:shadow-md transition-all duration-200"
               >
                 {images.length > 0 && (
                   <Carousel
                     opts={{ loop: images.length > 1 }}
-                    className="mb-5 overflow-hidden border border-border"
+                    className="mb-4 lg:mb-5 overflow-hidden border border-border"
                   >
                     <CarouselContent className="-ml-0">
                       {images.map((src, index) => (
@@ -1257,34 +1224,28 @@ function Domains() {
                           <img
                             src={src}
                             alt={`${competence.title} - illustration ${index + 1}`}
-                            className="h-40 w-full object-cover"
+                            className="h-28 lg:h-40 w-full object-cover"
                             loading="lazy"
                           />
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    {images.length > 1 && (
-                      <>
-                        <CarouselPrevious className="left-2 size-7 border-white/80 bg-white/90 text-primary hover:bg-white" />
-                        <CarouselNext className="right-2 size-7 border-white/80 bg-white/90 text-primary hover:bg-white" />
-                      </>
-                    )}
                   </Carousel>
                 )}
 
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 bg-primary flex items-center justify-center flex-shrink-0">
-                    <competence.icon size={20} className="text-accent" />
+                <div className="flex items-center gap-3 mb-3 lg:mb-4">
+                  <div className="w-9 h-9 lg:w-11 lg:h-11 bg-primary flex items-center justify-center flex-shrink-0">
+                    <competence.icon size={16} lg:size={20} className="text-accent" />
                   </div>
-                  <h3 className="font-['Merriweather'] text-base font-bold text-primary leading-snug">
+                  <h3 className="font-['Merriweather'] text-xs lg:text-base font-bold text-primary leading-snug">
                     {competence.title}
                   </h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {competence.items.map((item) => (
                     <span
                       key={item}
-                      className="font-['Inter'] text-xs font-medium text-foreground bg-secondary border border-border px-2.5 py-1"
+                      className="font-['Inter'] text-[9px] lg:text-xs font-medium text-foreground bg-secondary border border-border px-2 py-0.5 lg:px-2.5 lg:py-1"
                     >
                       {item}
                     </span>
@@ -1295,29 +1256,27 @@ function Domains() {
           })}
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 mb-16 bg-primary text-white">
-          <div className="lg:col-span-4 p-7 lg:p-8">
-            <div className="w-11 h-11 bg-accent flex items-center justify-center mb-5">
-              <Users size={21} className="text-primary" />
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 mb-10 lg:mb-16 bg-primary text-white">
+          <div className="lg:col-span-4 p-6 lg:p-8">
+            <div className="w-10 h-10 lg:w-11 lg:h-11 bg-accent flex items-center justify-center mb-4 lg:mb-5">
+              <Users size={20} lg:size={21} className="text-primary" />
             </div>
-            <h3 className="font-['Merriweather'] text-2xl font-bold leading-snug mb-4">
+            <h3 className="font-['Merriweather'] text-xl lg:text-2xl font-bold leading-snug mb-3 lg:mb-4">
               Une équipe pluridisciplinaire
             </h3>
-            <p className="font-['Inter'] text-sm text-white/75 leading-relaxed">
-              UNIVALOR S.A est dirigée par une équipe de cadres hautement qualifiés,
-              organisée pour relier la recherche universitaire aux besoins concrets du
-              secteur productif.
+            <p className="font-['Inter'] text-xs lg:text-sm text-white/75 leading-relaxed">
+              UNIVALOR S.A est dirigée par une équipe de cadres hautement qualifiés.
             </p>
           </div>
-          <div className="lg:col-span-8 bg-white text-foreground p-7 lg:p-8 border border-border">
-            <h4 className="font-['Inter'] text-xs font-semibold tracking-widest text-primary uppercase mb-5">
+          <div className="lg:col-span-8 bg-white text-foreground p-6 lg:p-8 border border-border">
+            <h4 className="font-['Inter'] text-[10px] lg:text-xs font-semibold tracking-widest text-primary uppercase mb-4 lg:mb-5">
               Ressources mobilisées
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-3 lg:space-y-4">
               {TEAM_RESOURCES.map((resource) => (
                 <div key={resource} className="flex gap-3">
-                  <CheckCircle2 size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                  <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">
+                  <CheckCircle2 size={16} lg:size={18} className="text-primary flex-shrink-0 mt-0.5" />
+                  <p className="font-['Inter'] text-xs lg:text-sm text-muted-foreground leading-relaxed">
                     {resource}
                   </p>
                 </div>
@@ -1326,20 +1285,20 @@ function Domains() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
             {DOMAINS.map((d, i) => (
               <button
                 key={d.title}
                 onClick={() => setActive(i)}
-                className={`flex items-center gap-3 px-5 py-4 text-left flex-shrink-0 border transition-all duration-150 ${
+                className={`flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 text-left flex-shrink-0 border transition-all duration-150 ${
                   active === i
                     ? "bg-primary text-white border-primary"
                     : "bg-white text-foreground border-border hover:border-primary/40"
                 }`}
               >
-                <d.icon size={16} className={active === i ? "text-accent" : "text-primary"} />
-                <span className="font-['Inter'] text-sm font-medium whitespace-nowrap">{d.title}</span>
+                <d.icon size={14} lg:size={16} className={active === i ? "text-accent" : "text-primary"} />
+                <span className="font-['Inter'] text-xs lg:text-sm font-medium whitespace-nowrap">{d.title}</span>
               </button>
             ))}
           </div>
@@ -1347,27 +1306,21 @@ function Domains() {
           <div className="lg:col-span-8">
             {DOMAINS.map((d, i) =>
               active !== i ? null : (
-                <div key={d.title} className="border border-border bg-white p-8 h-full">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-primary flex items-center justify-center">
-                      <d.icon size={22} className="text-accent" />
+                <div key={d.title} className="border border-border bg-white p-6 lg:p-8 h-full">
+                  <div className="flex items-center gap-3 mb-4 lg:mb-6">
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-primary flex items-center justify-center">
+                      <d.icon size={20} lg:size={22} className="text-accent" />
                     </div>
-                    <h3 className="font-['Merriweather'] text-xl font-bold text-primary">{d.title}</h3>
+                    <h3 className="font-['Merriweather'] text-lg lg:text-xl font-bold text-primary">{d.title}</h3>
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-2 lg:gap-3">
                     {d.items.map(item => (
-                      <div key={item} className="flex items-center gap-3 py-3 border-b border-border">
-                        <ChevronRight size={14} className="text-primary flex-shrink-0" />
-                        <span className="font-['Inter'] text-sm text-foreground">{item}</span>
+                      <div key={item} className="flex items-center gap-2 py-2 lg:py-3 border-b border-border">
+                        <ChevronRight size={12} lg:size={14} className="text-primary flex-shrink-0" />
+                        <span className="font-['Inter'] text-xs lg:text-sm text-foreground">{item}</span>
                       </div>
                     ))}
                   </div>
-                  <button
-                    onClick={() => scrollTo("#contact")}
-                    className="mt-8 inline-flex items-center gap-2 bg-primary text-white font-['Inter'] text-sm font-medium px-5 py-2.5 hover:bg-primary/90 transition-colors"
-                  >
-                    Soumettre un projet <ArrowRight size={14} />
-                  </button>
                 </div>
               )
             )}
@@ -1378,10 +1331,9 @@ function Domains() {
   );
 }
 
-// ─── Partenaires ──────────────────────────────────────────────────────────────
 function Partners() {
   return (
-    <section id="partenaires" className="py-20 bg-secondary border-y border-border">
+    <section id="partenaires" className="py-12 lg:py-20 bg-secondary border-y border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-8 h-1 bg-accent" />
@@ -1389,35 +1341,24 @@ function Partners() {
             Réseau & Alliances
           </span>
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-12">
-          <h2 className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug">
-            Nos partenaires institutionnels
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mt-4 mb-8 lg:mb-12">
+          <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug">
+            Partenaires institutionnels
           </h2>
-          <p className="font-['Inter'] text-sm text-muted-foreground max-w-sm leading-relaxed">
-            Un réseau solide d'institutions nationales, régionales et internationales pour amplifier
-            l'impact de nos actions.
-          </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border">
           {PARTNERS.map(name => (
             <div
               key={name}
-              className="bg-white px-6 py-7 flex items-center justify-center text-center hover:bg-primary group transition-colors duration-150 cursor-pointer"
+              className="bg-white px-4 py-5 lg:px-6 lg:py-7 flex items-center justify-center text-center hover:bg-primary group transition-colors duration-150 cursor-pointer"
             >
-              <span className="font-['Inter'] text-sm font-medium text-muted-foreground group-hover:text-white transition-colors duration-150">
+              <span className="font-['Inter'] text-[10px] lg:text-sm font-medium text-muted-foreground group-hover:text-white transition-colors duration-150">
                 {name}
               </span>
             </div>
           ))}
         </div>
-
-        <p className="font-['Inter'] text-sm text-muted-foreground text-center mt-8">
-          Souhaitez-vous rejoindre notre réseau ?{" "}
-          <button onClick={() => scrollTo("#contact")} className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">
-            Contactez-nous
-          </button>
-        </p>
       </div>
     </section>
   );
@@ -1426,7 +1367,7 @@ function Partners() {
 // ─── Formations ──────────────────────────────────────────────────────────────
 function Formations() {
   return (
-    <section id="formations" className="py-24 bg-white overflow-hidden">
+    <section id="formations" className="py-12 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -1440,32 +1381,24 @@ function Formations() {
           </span>
         </motion.div>
         
-        <div className="mt-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16">
+        <div className="mt-8 lg:mt-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-10 lg:mb-16">
             <div className="max-w-2xl">
               <motion.h2 
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug mb-4"
+                className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug mb-3"
               >
                 Séries des Formations Réalisées
               </motion.h2>
-              <p className="font-['Inter'] text-base text-muted-foreground leading-relaxed">
-                Quelques images des différents séries des formations réalisées avec nos différents partenaires
+              <p className="font-['Inter'] text-xs lg:text-base text-muted-foreground leading-relaxed">
+                Quelques images des séries réalisées avec nos partenaires
               </p>
-            </div>
-            <div className="flex items-center gap-4 bg-secondary p-4 border border-border">
-              <div className="p-2 bg-primary text-white">
-                <GraduationCap size={20} />
-              </div>
-              <div className="font-['Inter'] text-sm font-bold text-primary">
-                Expertise Pédagogique Certifiée
-              </div>
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
             {FORMATIONS.map((f, idx) => (
               <motion.div
                 key={f.title}
@@ -1489,22 +1422,20 @@ function Formations() {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-2 size-8 bg-white/90 text-primary border-none" />
-                    <CarouselNext className="right-2 size-8 bg-white/90 text-primary border-none" />
+                    <CarouselPrevious className="left-2 size-7 lg:size-8 bg-white/90 text-primary border-none" />
+                    <CarouselNext className="right-2 size-7 lg:size-8 bg-white/90 text-primary border-none" />
                   </Carousel>
-                  <div className="absolute bottom-4 left-4 right-4 bg-primary/90 backdrop-blur-sm p-3 text-white">
-                    <div className="flex items-center gap-2 mb-1">
-                      <Calendar size={12} className="text-accent" />
-                      <span className="font-['Inter'] text-[10px] font-bold uppercase tracking-widest">{f.date}</span>
-                    </div>
-                  </div>
                 </div>
                 
-                <div className="p-8">
-                  <h3 className="font-['Merriweather'] text-lg font-bold text-primary mb-4 leading-tight group-hover:text-accent transition-colors">
+                <div className="p-5 lg:p-8">
+                  <div className="flex items-center gap-2 mb-2 lg:mb-4">
+                    <Calendar size={12} className="text-accent" />
+                    <span className="font-['Inter'] text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-primary">{f.date}</span>
+                  </div>
+                  <h3 className="font-['Merriweather'] text-base lg:text-lg font-bold text-primary mb-2 lg:mb-4 leading-tight group-hover:text-accent transition-colors">
                     {f.title}
                   </h3>
-                  <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">
+                  <p className="font-['Inter'] text-[11px] lg:text-sm text-muted-foreground leading-relaxed">
                     {f.description}
                   </p>
                 </div>
@@ -1530,7 +1461,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-secondary border-t border-border">
+    <section id="contact" className="py-12 lg:py-20 bg-secondary border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-8 h-1 bg-accent" />
@@ -1538,116 +1469,64 @@ function Contact() {
             Nous contacter
           </span>
         </div>
-        <div className="mt-4 mb-12">
-          <h2 className="font-['Merriweather'] text-3xl lg:text-4xl font-bold text-primary leading-snug">
+        <div className="mt-4 mb-8 lg:mb-12">
+          <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-primary leading-snug">
             Entrons en contact
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Infos */}
-          <div className="lg:col-span-4 space-y-6">
-            <p className="font-['Inter'] text-sm text-muted-foreground leading-relaxed">
-              Vous avez un projet de partenariat, une demande d'expertise ou souhaitez en savoir
-              plus sur nos services ? Notre équipe est disponible du lundi au vendredi.
+          <div className="lg:col-span-4 space-y-4 lg:space-y-6">
+            <p className="font-['Inter'] text-xs lg:text-sm text-muted-foreground leading-relaxed">
+              Vous avez un projet ou souhaitez en savoir plus ? Notre équipe est à votre disposition.
             </p>
             {[
-              { icon: MapPin, label: "Adresse", value: "Université de N'Djaména\nBP 1117, N'Djaména, Tchad" },
+              { icon: MapPin, label: "Adresse", value: "Université de N'Djaména, Tchad" },
               { icon: Phone, label: "Téléphone", value: "+235 22 51 44 00" },
               { icon: Mail, label: "Email", value: "contact@univalorsa.td" },
             ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-primary flex items-center justify-center flex-shrink-0">
-                  <Icon size={16} className="text-white" />
+              <div key={label} className="flex items-start gap-3 lg:gap-4">
+                <div className="w-9 h-9 lg:w-10 lg:h-10 bg-primary flex items-center justify-center flex-shrink-0">
+                  <Icon size={14} lg:size={16} className="text-white" />
                 </div>
                 <div>
-                  <div className="font-['Inter'] text-xs font-semibold text-primary uppercase tracking-wider mb-1">{label}</div>
-                  <div className="font-['Inter'] text-sm text-foreground whitespace-pre-line">{value}</div>
+                  <div className="font-['Inter'] text-[10px] lg:text-xs font-semibold text-primary uppercase tracking-wider mb-0.5 lg:mb-1">{label}</div>
+                  <div className="font-['Inter'] text-xs lg:text-sm text-foreground whitespace-pre-line">{value}</div>
                 </div>
               </div>
             ))}
-
-            {/* Map placeholder */}
-            <div className="mt-4 overflow-hidden border border-border">
-              <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=500&h=200&fit=crop&auto=format"
-                alt="Localisation N'Djaména, Tchad"
-                className="w-full h-36 object-cover"
-              />
-            </div>
           </div>
 
           {/* Formulaire */}
           <div className="lg:col-span-8">
             {sent ? (
-              <div className="bg-white border border-border p-10 flex flex-col items-center justify-center min-h-[380px] text-center">
-                <div className="w-14 h-14 bg-primary flex items-center justify-center mb-5">
-                  <CheckCircle2 size={28} className="text-accent" />
-                </div>
-                <h3 className="font-['Merriweather'] text-xl font-bold text-primary mb-2">Message envoyé</h3>
-                <p className="font-['Inter'] text-sm text-muted-foreground">
-                  Merci de nous avoir contactés. Notre équipe vous répondra sous 48h ouvrées.
-                </p>
+              <div className="bg-white border border-border p-6 lg:p-10 flex flex-col items-center justify-center min-h-[300px] text-center">
+                <CheckCircle2 size={24} lg:size={28} className="text-accent mb-4" />
+                <h3 className="font-['Merriweather'] text-lg lg:text-xl font-bold text-primary mb-2">Message envoyé</h3>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white border border-border p-8 space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="bg-white border border-border p-6 lg:p-8 space-y-4 lg:space-y-5">
+                <div className="grid sm:grid-cols-2 gap-4 lg:gap-5">
                   <div>
-                    <label className="block font-['Inter'] text-xs font-semibold text-foreground uppercase tracking-wide mb-1.5">
-                      Nom complet *
-                    </label>
-                    <input
-                      required
-                      value={form.nom}
-                      onChange={e => setForm({ ...form, nom: e.target.value })}
-                      placeholder="Votre nom"
-                      className="w-full border border-border px-4 py-2.5 font-['Inter'] text-sm focus:outline-none focus:border-primary transition-colors bg-white"
-                    />
+                    <label className="block font-['Inter'] text-[10px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Nom *</label>
+                    <input required value={form.nom} onChange={e => setForm({ ...form, nom: e.target.value })} className="w-full border border-border px-3 py-2 lg:px-4 lg:py-2.5 font-['Inter'] text-xs lg:text-sm focus:outline-none focus:border-primary bg-white" />
                   </div>
                   <div>
-                    <label className="block font-['Inter'] text-xs font-semibold text-foreground uppercase tracking-wide mb-1.5">
-                      Email *
-                    </label>
-                    <input
-                      required
-                      type="email"
-                      value={form.email}
-                      onChange={e => setForm({ ...form, email: e.target.value })}
-                      placeholder="votre@email.com"
-                      className="w-full border border-border px-4 py-2.5 font-['Inter'] text-sm focus:outline-none focus:border-primary transition-colors bg-white"
-                    />
+                    <label className="block font-['Inter'] text-[10px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Email *</label>
+                    <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} className="w-full border border-border px-3 py-2 lg:px-4 lg:py-2.5 font-['Inter'] text-xs lg:text-sm focus:outline-none focus:border-primary bg-white" />
                   </div>
                 </div>
                 <div>
-                  <label className="block font-['Inter'] text-xs font-semibold text-foreground uppercase tracking-wide mb-1.5">
-                    Objet *
-                  </label>
-                  <input
-                    required
-                    value={form.objet}
-                    onChange={e => setForm({ ...form, objet: e.target.value })}
-                    placeholder="Partenariat, expertise, renseignement..."
-                    className="w-full border border-border px-4 py-2.5 font-['Inter'] text-sm focus:outline-none focus:border-primary transition-colors bg-white"
-                  />
+                  <label className="block font-['Inter'] text-[10px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Objet *</label>
+                  <input required value={form.objet} onChange={e => setForm({ ...form, objet: e.target.value })} className="w-full border border-border px-3 py-2 lg:px-4 lg:py-2.5 font-['Inter'] text-xs lg:text-sm focus:outline-none focus:border-primary bg-white" />
                 </div>
                 <div>
-                  <label className="block font-['Inter'] text-xs font-semibold text-foreground uppercase tracking-wide mb-1.5">
-                    Message *
-                  </label>
-                  <textarea
-                    required
-                    rows={5}
-                    value={form.message}
-                    onChange={e => setForm({ ...form, message: e.target.value })}
-                    placeholder="Décrivez votre demande..."
-                    className="w-full border border-border px-4 py-2.5 font-['Inter'] text-sm focus:outline-none focus:border-primary transition-colors resize-none bg-white"
-                  />
+                  <label className="block font-['Inter'] text-[10px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Message *</label>
+                  <textarea required rows={4} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full border border-border px-3 py-2 lg:px-4 lg:py-2.5 font-['Inter'] text-xs lg:text-sm focus:outline-none focus:border-primary resize-none bg-white" />
                 </div>
-                <button
-                  type="submit"
-                  className="group inline-flex items-center gap-2 bg-primary text-white font-['Inter'] text-sm font-semibold px-7 py-3 hover:bg-primary/90 transition-colors"
-                >
-                  Envoyer le message <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                <button type="submit" className="w-full lg:w-auto bg-primary text-white font-['Inter'] text-xs lg:text-sm font-semibold px-6 py-2.5 lg:px-7 lg:py-3 hover:bg-primary/90 transition-colors">
+                  Envoyer
                 </button>
               </form>
             )}
@@ -1666,29 +1545,27 @@ function Footer() {
 
   return (
     <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 mb-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-16">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-8 lg:mb-12">
           {/* Logo & Info */}
           <div className="lg:col-span-5">
-            <div className="mb-8">
+            <div className="mb-6 lg:mb-8">
               <img
                 src={logoImg}
                 alt="Logo UNIVALORSA"
-                className="h-16 w-auto object-contain"
+                className="h-12 lg:h-16 w-auto object-contain"
                 loading="lazy"
               />
             </div>
-            <p className="font-['Inter'] text-sm text-white/70 leading-relaxed max-w-sm mb-6">
+            <p className="font-['Inter'] text-xs lg:text-sm text-white/70 leading-relaxed max-w-sm mb-6">
               Société de valorisation des ressources de l'Université de N'Djaména.
-              Nous transformons la recherche académique en solutions opérationnelles 
-              pour le développement du Tchad.
             </p>
             <div className="flex gap-4">
-              <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
-                <Globe size={18} className="text-accent" />
+              <div className="w-9 h-9 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+                <Globe size={16} className="text-accent" />
               </div>
-              <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
-                <Mail size={18} className="text-accent" />
+              <div className="w-9 h-9 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+                <Mail size={16} className="text-accent" />
               </div>
             </div>
           </div>
