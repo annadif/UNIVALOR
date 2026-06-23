@@ -998,7 +998,7 @@ function Realisations() {
             Nos Réalisations Récentes
           </motion.h2>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-6">
             {visibleRealisations.map((item, idx) => (
               <motion.div
                 key={item.title + item.date}
@@ -1018,12 +1018,13 @@ function Realisations() {
                               alt={`${item.title} - ${i + 1}`}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                               fetchPriority="high"
+                              loading="eager"
                             />
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious className="left-2 size-7 border-white/50 bg-white/80 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <CarouselNext className="right-2 size-7 border-white/50 bg-white/80 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CarouselPrevious className="left-1 size-5 lg:left-2 lg:size-7 border-white/50 bg-white/80 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CarouselNext className="right-1 size-5 lg:right-2 lg:size-7 border-white/50 bg-white/80 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Carousel>
                   ) : (
                     <img
@@ -1031,29 +1032,30 @@ function Realisations() {
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       fetchPriority="high"
+                      loading="eager"
                     />
                   )}
-                  <div className="absolute top-0 right-0 bg-accent text-primary text-[8px] font-bold px-2 py-1 uppercase tracking-widest shadow-md">
+                  <div className="absolute top-0 right-0 bg-accent text-primary text-[7px] lg:text-[8px] font-bold px-1.5 py-0.5 lg:px-2 lg:py-1 uppercase tracking-widest shadow-md">
                     {item.displayDate}
                   </div>
                 </div>
                 
-                <div className="p-4 lg:p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-1.5 mb-2">
+                <div className="p-2 lg:p-4 flex flex-col flex-1">
+                  <div className="flex items-center gap-1 mb-1 lg:mb-2">
                     <div className="w-1 h-1 bg-accent rounded-full animate-pulse" />
-                    <span className="font-['Inter'] text-[7px] lg:text-[8px] font-bold text-primary uppercase tracking-[0.2em]">
+                    <span className="font-['Inter'] text-[6px] lg:text-[8px] font-bold text-primary uppercase tracking-widest">
                       Valorisation
                     </span>
                   </div>
-                  <h3 className="font-['Merriweather'] text-[10px] lg:text-sm font-bold text-primary leading-tight mb-3 flex-1 line-clamp-2">
+                  <h3 className="font-['Merriweather'] text-[9px] lg:text-sm font-bold text-primary leading-tight mb-2 flex-1 line-clamp-2">
                     {item.title}
                   </h3>
-                  <div className="pt-3 border-t border-border flex items-center justify-between mt-auto">
-                    <span className="font-['Inter'] text-[8px] lg:text-[9px] text-muted-foreground font-medium">
+                  <div className="pt-2 border-t border-border flex items-center justify-between mt-auto">
+                    <span className="font-['Inter'] text-[7px] lg:text-[9px] text-muted-foreground font-medium truncate max-w-[60%]">
                       UNIVALOR S.A
                     </span>
-                    <div className="w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                      <ArrowRight size={10} />
+                    <div className="w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <ArrowRight size={8} lg:size={10} />
                     </div>
                   </div>
                 </div>
@@ -1420,7 +1422,7 @@ function Formations() {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 lg:gap-10">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-2 lg:gap-10">
             {FORMATIONS.map((f, idx) => (
               <motion.div
                 key={f.title}
@@ -1440,24 +1442,25 @@ function Formations() {
                             alt={`${f.title} - ${i + 1}`}
                             className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
                             fetchPriority="high"
+                            loading="eager"
                           />
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-2 size-7 lg:size-8 bg-white/90 text-primary border-none" />
-                    <CarouselNext className="right-2 size-7 lg:size-8 bg-white/90 text-primary border-none" />
+                    <CarouselPrevious className="left-1 size-5 lg:left-2 lg:size-8 bg-white/90 text-primary border-none" />
+                    <CarouselNext className="right-1 size-5 lg:right-2 lg:size-8 bg-white/90 text-primary border-none" />
                   </Carousel>
                 </div>
                 
-                <div className="p-4 lg:p-8">
-                  <div className="flex items-center gap-1.5 mb-1.5 lg:mb-4">
-                    <Calendar size={10} className="text-accent" />
-                    <span className="font-['Inter'] text-[8px] lg:text-[10px] font-bold uppercase tracking-widest text-primary">{f.date}</span>
+                <div className="p-2 lg:p-8">
+                  <div className="flex items-center gap-1 mb-1 lg:mb-4">
+                    <Calendar size={8} lg:size={10} className="text-accent" />
+                    <span className="font-['Inter'] text-[7px] lg:text-[10px] font-bold uppercase tracking-widest text-primary">{f.date}</span>
                   </div>
-                  <h3 className="font-['Merriweather'] text-sm lg:text-lg font-bold text-primary mb-1.5 lg:mb-4 leading-tight">
+                  <h3 className="font-['Merriweather'] text-[10px] lg:text-lg font-bold text-primary mb-1 lg:mb-4 leading-tight">
                     {f.title}
                   </h3>
-                  <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">
+                  <p className="font-['Inter'] text-[9px] lg:text-sm text-muted-foreground leading-relaxed line-clamp-2 lg:line-clamp-none">
                     {f.description}
                   </p>
                 </div>
