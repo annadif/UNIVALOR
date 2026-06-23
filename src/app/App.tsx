@@ -35,7 +35,6 @@ const NAV_LINKS = [
   { label: "Réalisations", href: "#realisations" },
   { label: "Nos Missions", href: "#missions" },
   { label: "Infrastructures", href: "#infrastructures" },
-  { label: "Partenaires", href: "#partenaires" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -329,17 +328,6 @@ function getCompetenceImages(title: string) {
     .sort(([a], [b]) => a.localeCompare(b, "fr", { numeric: true }))
     .map(([, src]) => src);
 }
-
-const PARTNERS = [
-  "Université de N'Djaména",
-  "Ministère de l'Enseignement Supérieur",
-  "Union Européenne",
-  "Banque Mondiale",
-  "Agence Française de Développement",
-  "CEMAC",
-  "Banque Africaine de Développement",
-  "PNUD",
-];
 
 const formationImageModules = import.meta.glob("/src/img/Formations/*.{png,jpg,jpeg,webp}", {
   eager: true,
@@ -1371,39 +1359,6 @@ function Domains() {
   );
 }
 
-function Partners() {
-  return (
-    <section id="partenaires" className="py-6 lg:py-10 bg-secondary border-y border-border">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <div className="flex items-center gap-2 mb-1.5">
-          <div className="w-6 h-1 bg-accent" />
-          <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-primary uppercase">
-            Réseau & Alliances
-          </span>
-        </div>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 mt-4 mb-6 lg:mb-12">
-          <h2 className="font-['Merriweather'] text-lg lg:text-4xl font-bold text-primary leading-snug">
-            Partenaires institutionnels
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border">
-          {PARTNERS.map(name => (
-            <div
-              key={name}
-              className="bg-white px-3 py-4 lg:px-6 lg:py-7 flex items-center justify-center text-center hover:bg-primary group transition-colors duration-150 cursor-pointer"
-            >
-              <span className="font-['Inter'] text-[9px] lg:text-sm font-medium text-muted-foreground group-hover:text-white transition-colors duration-150">
-                {name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Infrastructures() {
   return (
     <section id="infrastructures" className="py-6 lg:py-10 bg-white">
@@ -1546,8 +1501,8 @@ function Formations() {
   );
 }
 
-// ─── Contact ──────────────────────────────────────────────────────────────────
-function Contact() {
+// ─── Footer ───────────────────────────────────────────────────────────────────
+function Footer() {
   const [form, setForm] = useState({ nom: "", email: "", objet: "", message: "" });
   const [sent, setSent] = useState(false);
 
@@ -1559,168 +1514,125 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-6 lg:py-10 bg-secondary border-t border-border">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <div className="flex items-center gap-2 mb-1.5">
-          <div className="w-6 h-1 bg-accent" />
-          <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-primary uppercase">
-            Nous contacter
-          </span>
-        </div>
-        <div className="mt-4 mb-6 lg:mb-12">
-          <h2 className="font-['Merriweather'] text-lg lg:text-4xl font-bold text-primary leading-snug">
-            Entrons en contact
-          </h2>
-        </div>
-
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-12">
-          {/* Infos */}
-          <div className="lg:col-span-4 space-y-4 lg:space-y-6">
-            <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">
-              UNIVALOR S.A - FSEA<br />
-              BP 6159 - N'DJAMÉNA - TCHAD
-            </p>
-            {[
-              { icon: Phone, label: "Téléphone", value: "(00235) 66 24 65 81" },
-              { icon: FileText, label: "Fax", value: "(00235) 66 27 53 38" },
-              { icon: Mail, label: "Email", value: "contact@univalor-tchad.com" },
-            ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="flex items-start gap-2.5 lg:gap-4">
-                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-primary flex items-center justify-center flex-shrink-0">
-                  <Icon size={14} lg:size={16} className="text-white" />
-                </div>
-                <div>
-                  <div className="font-['Inter'] text-[8px] lg:text-[10px] font-semibold text-primary uppercase tracking-wider mb-0.5">{label}</div>
-                  <div className="font-['Inter'] text-[10px] lg:text-sm text-foreground whitespace-pre-line">{value}</div>
-                </div>
-              </div>
-            ))}
+    <footer id="contact" className="bg-primary text-white">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 py-10 lg:py-16">
+        {/* Contact Section within Footer */}
+        <div className="mb-12 lg:mb-20">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-6 h-1 bg-accent" />
+            <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-white uppercase">
+              Contactez-nous
+            </span>
           </div>
-
-          {/* Formulaire */}
-          <div className="lg:col-span-8">
-            {sent ? (
-              <div className="bg-white border border-border p-5 lg:p-10 flex flex-col items-center justify-center min-h-[240px] text-center">
-                <CheckCircle2 size={24} lg:size={28} className="text-accent mb-3" />
-                <h3 className="font-['Merriweather'] text-base lg:text-xl font-bold text-primary mb-1.5">Message envoyé</h3>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="bg-white border border-border p-5 lg:p-8 space-y-3.5 lg:space-y-5 shadow-sm">
-                <div className="grid sm:grid-cols-2 gap-3.5 lg:gap-5">
-                  <div>
-                    <label className="block font-['Inter'] text-[9px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Nom *</label>
-                    <input required value={form.nom} onChange={e => setForm({ ...form, nom: e.target.value })} className="w-full border border-border px-2.5 py-1.5 lg:px-4 lg:py-2.5 font-['Inter'] text-[11px] lg:text-sm focus:outline-none focus:border-primary bg-white" />
+          
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <div className="lg:col-span-5 space-y-6">
+              <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-white leading-tight">
+                Une question ? <br /> Parlons de votre projet.
+              </h2>
+              
+              <div className="space-y-4">
+                {[
+                  { icon: MapPin, label: "Adresse", value: "UNIVALOR S.A - FSEA\nBP 6159 - N'DJAMÉNA - TCHAD" },
+                  { icon: Phone, label: "Téléphone", value: "(00235) 66 24 65 81" },
+                  { icon: FileText, label: "Fax", value: "(00235) 66 27 53 38" },
+                  { icon: Mail, label: "Email", value: "contact@univalor-tchad.com" },
+                ].map(({ icon: Icon, label, value }) => (
+                  <div key={label} className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Icon size={18} className="text-accent" />
+                    </div>
+                    <div>
+                      <div className="font-['Inter'] text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">{label}</div>
+                      <div className="font-['Inter'] text-sm text-white/80 whitespace-pre-line leading-relaxed">{value}</div>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block font-['Inter'] text-[9px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Email *</label>
-                    <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} className="w-full border border-border px-2.5 py-1.5 lg:px-4 lg:py-2.5 font-['Inter'] text-[11px] lg:text-sm focus:outline-none focus:border-primary bg-white" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block font-['Inter'] text-[9px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Objet *</label>
-                  <input required value={form.objet} onChange={e => setForm({ ...form, objet: e.target.value })} className="w-full border border-border px-2.5 py-1.5 lg:px-4 lg:py-2.5 font-['Inter'] text-[11px] lg:text-sm focus:outline-none focus:border-primary bg-white" />
-                </div>
-                <div>
-                  <label className="block font-['Inter'] text-[9px] lg:text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Message *</label>
-                  <textarea required rows={3} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full border border-border px-2.5 py-1.5 lg:px-4 lg:py-2.5 font-['Inter'] text-[11px] lg:text-sm focus:outline-none focus:border-primary resize-none bg-white" />
-                </div>
-                <button type="submit" className="w-full lg:w-auto bg-primary text-white font-['Inter'] text-[10px] lg:text-sm font-semibold px-5 py-2 lg:px-7 lg:py-3 hover:bg-primary/90 transition-colors">
-                  Envoyer
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Footer ───────────────────────────────────────────────────────────────────
-function Footer() {
-  const navHalf = Math.ceil(NAV_LINKS.length / 2);
-  const nav1 = NAV_LINKS.slice(0, navHalf);
-  const nav2 = NAV_LINKS.slice(navHalf);
-
-  return (
-    <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 py-6 lg:py-10">
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-16 mb-6 lg:mb-12">
-          {/* Logo & Info */}
-          <div className="lg:col-span-5">
-            <div className="mb-4 lg:mb-8">
-              <img
-                src={logoImg}
-                alt="Logo UNIVALORSA"
-                className="h-10 lg:h-16 w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
-            <p className="font-['Inter'] text-[10px] lg:text-sm text-white/70 leading-relaxed max-w-sm mb-4 lg:mb-6">
-              UNIVALOR S.A - Société de valorisation des ressources de l'Université de N'Djaména.
-            </p>
-            <div className="flex gap-3">
-              <div className="w-8 h-8 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
-                <Globe size={14} lg:size={18} className="text-accent" />
-              </div>
-              <div className="w-8 h-8 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
-                <Mail size={14} lg:size={18} className="text-accent" />
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* Nav Part 1 */}
-          <div className="lg:col-span-2">
-            <h4 className="font-['Inter'] text-[8px] lg:text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-4 lg:mb-8">Navigation</h4>
-            <ul className="space-y-2 lg:space-y-4">
-              {nav1.map(l => (
-                <li key={l.href}>
-                  <button
-                    onClick={() => scrollTo(l.href)}
-                    className="font-['Inter'] text-[10px] lg:text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    {l.label}
+            <div className="lg:col-span-7">
+              {sent ? (
+                <div className="bg-white/5 border border-white/10 p-8 lg:p-12 flex flex-col items-center justify-center min-h-[300px] text-center">
+                  <CheckCircle2 size={32} className="text-accent mb-4" />
+                  <h3 className="font-['Merriweather'] text-xl font-bold text-white mb-2">Message envoyé</h3>
+                  <p className="text-white/60 text-sm">Merci, nous vous répondrons dans les plus brefs délais.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 p-6 lg:p-10 space-y-4 lg:space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
+                    <div>
+                      <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Nom *</label>
+                      <input required value={form.nom} onChange={e => setForm({ ...form, nom: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white" />
+                    </div>
+                    <div>
+                      <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Email *</label>
+                      <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Objet *</label>
+                    <input required value={form.objet} onChange={e => setForm({ ...form, objet: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white" />
+                  </div>
+                  <div>
+                    <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Message *</label>
+                    <textarea required rows={4} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white resize-none" />
+                  </div>
+                  <button type="submit" className="w-full lg:w-auto bg-accent text-primary font-['Inter'] text-sm font-bold px-8 py-4 hover:bg-accent/90 transition-colors">
+                    Envoyer le message
                   </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Nav Part 2 */}
-          <div className="lg:col-span-2">
-            <h4 className="font-['Inter'] text-[8px] lg:text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-4 lg:mb-8 invisible lg:visible">Navigation</h4>
-            <ul className="space-y-2 lg:space-y-4">
-              {nav2.map(l => (
-                <li key={l.href}>
-                  <button
-                    onClick={() => scrollTo(l.href)}
-                    className="font-['Inter'] text-[10px] lg:text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    {l.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Informations */}
-          <div className="lg:col-span-3">
-            <h4 className="font-['Inter'] text-[8px] lg:text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-4 lg:mb-8">Informations</h4>
-            <ul className="space-y-2 lg:space-y-4">
-              {["Mentions légales", "Politique"].map(item => (
-                <li key={item}>
-                  <span className="font-['Inter'] text-[10px] lg:text-sm text-white/60 hover:text-white cursor-pointer transition-colors">{item}</span>
-                </li>
-              ))}
-            </ul>
+                </form>
+              )}
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 lg:gap-4">
-          <p className="font-['Inter'] text-[9px] lg:text-[11px] text-white/40 tracking-wider">
-            © {new Date().getFullYear()} UNIVALOR S.A — TOUS DROITS RÉSERVÉS
-          </p>
-          <span className="font-['Inter'] text-[9px] lg:text-[11px] text-white/40 uppercase">BP 6159, N'DJAMÉNA, TCHAD</span>
+        {/* Bottom Footer Info */}
+        <div className="pt-10 lg:pt-16 border-t border-white/10">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+            <div className="lg:col-span-6">
+              <div className="mb-6 lg:mb-8">
+                <img
+                  src={logoImg}
+                  alt="Logo UNIVALORSA"
+                  className="h-12 lg:h-20 w-auto object-contain brightness-0 invert"
+                  loading="lazy"
+                />
+              </div>
+              <p className="font-['Inter'] text-sm text-white/70 leading-relaxed max-w-lg mb-6 lg:mb-8">
+                UNIVALOR S.A - Société de valorisation des ressources de l'Université de N'Djaména. <br />
+                Le plus important centre de formation continue et de valorisation au niveau national.
+              </p>
+              <div className="flex gap-4">
+                <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer group">
+                  <Globe size={18} className="text-accent group-hover:scale-110 transition-transform" />
+                </div>
+                <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer group">
+                  <Mail size={18} className="text-accent group-hover:scale-110 transition-transform" />
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 lg:text-right flex flex-col justify-end">
+              <div className="space-y-4">
+                <h4 className="font-['Inter'] text-[10px] font-bold tracking-[0.2em] uppercase text-accent">Informations</h4>
+                <ul className="space-y-2">
+                  {["Mentions légales", "Politique de confidentialité"].map(item => (
+                    <li key={item}>
+                      <span className="font-['Inter'] text-sm text-white/60 hover:text-white cursor-pointer transition-colors">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 lg:mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="font-['Inter'] text-[11px] text-white/40 tracking-wider">
+              © {new Date().getFullYear()} UNIVALOR S.A — TOUS DROITS RÉSERVÉS
+            </p>
+            <span className="font-['Inter'] text-[11px] text-white/40 uppercase tracking-widest">BP 6159, N'DJAMÉNA, TCHAD</span>
+          </div>
         </div>
       </div>
     </footer>
@@ -1741,8 +1653,6 @@ export default function App() {
       <Missions />
       <SuccessFactors />
       <Infrastructures />
-      <Partners />
-      <Contact />
       <Footer />
     </div>
   );
