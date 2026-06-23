@@ -34,6 +34,7 @@ const NAV_LINKS = [
   { label: "Formations", href: "#formations" },
   { label: "Réalisations", href: "#realisations" },
   { label: "Nos Missions", href: "#missions" },
+  { label: "Infrastructures", href: "#infrastructures" },
   { label: "Partenaires", href: "#partenaires" },
   { label: "Contact", href: "#contact" },
 ];
@@ -413,6 +414,21 @@ const HERO_SLIDES = [
     img: computerLabImg,
     alt: "Salle informatique de l'Universite de N'Djamena",
   },
+];
+
+const infraImageModules = import.meta.glob("/src/img/Infrastructures/*.{png,jpg,jpeg,webp}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const INFRASTRUCTURES = [
+  { img: infraImageModules["/src/img/Infrastructures/salle 1.png"], title: "Vue panoramique de la salle multimédia" },
+  { img: infraImageModules["/src/img/Infrastructures/Salle 2.png"], title: "Salle de formation numéro 2" },
+  { img: infraImageModules["/src/img/Infrastructures/Salle 3.png"], title: "Salle de formation numéro 3" },
+  { img: infraImageModules["/src/img/Infrastructures/Salle 4.png"], title: "Salle de formation numéro 4" },
+  { img: infraImageModules["/src/img/Infrastructures/Salle 5.png"], title: "Salle de formation numéro 5" },
+  { img: infraImageModules["/src/img/Infrastructures/RESTAURATION.png"], title: "VUE GLOBALE DE L’AIRE DE RESTAURATION" },
+  { img: infraImageModules["/src/img/Infrastructures/AIRE DE RESTAURATION.png"], title: "AIRE DE RESTAURATION" },
 ];
 
 function scrollTo(href: string) {
@@ -1388,6 +1404,63 @@ function Partners() {
   );
 }
 
+function Infrastructures() {
+  return (
+    <section id="infrastructures" className="py-6 lg:py-10 bg-white">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-2 mb-1.5"
+        >
+          <div className="w-6 h-1 bg-accent" />
+          <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-primary uppercase">
+            Nos Espaces
+          </span>
+        </motion.div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 mt-4 mb-6 lg:mb-10">
+          <h2 className="font-['Merriweather'] text-lg lg:text-3xl font-bold text-primary leading-snug">
+            Nos Infrastructures
+          </h2>
+          <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground max-w-sm leading-relaxed">
+            Des espaces modernes et équipés pour vos formations et événements.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
+          {INFRASTRUCTURES.map((infra, idx) => (
+            <motion.div
+              key={infra.title}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05 }}
+              className="group relative overflow-hidden bg-secondary border border-border rounded-sm shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              <div className="aspect-video overflow-hidden">
+                <img 
+                  src={infra.img} 
+                  alt={infra.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  fetchPriority="high"
+                  loading="eager"
+                />
+              </div>
+              <div className="p-3 lg:p-4 bg-white border-t border-border flex-1">
+                <div className="w-4 h-0.5 bg-accent mb-2" />
+                <h3 className="font-['Merriweather'] text-[9px] lg:text-sm font-bold text-primary leading-tight line-clamp-2">
+                  {infra.title}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Formations ──────────────────────────────────────────────────────────────
 function Formations() {
   return (
@@ -1667,6 +1740,7 @@ export default function App() {
       <Realisations />
       <Missions />
       <SuccessFactors />
+      <Infrastructures />
       <Partners />
       <Contact />
       <Footer />
