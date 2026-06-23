@@ -42,7 +42,7 @@ const STATS = [
   { value: "562", label: "Enseignants-chercheurs", icon: Users },
   { value: "33", label: "Départements & Labos", icon: Building2 },
   { value: "6500+", label: "Agents formés", icon: GraduationCap },
-  { value: "25+", label: "Années d'expertise", icon: Award },
+  { value: "25+", label: "Années d'expérience", icon: Award },
 ];
 
 const MISSIONS = [
