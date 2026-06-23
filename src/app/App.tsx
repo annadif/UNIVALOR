@@ -998,7 +998,7 @@ function Realisations() {
             Nos Réalisations Récentes
           </motion.h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
             {visibleRealisations.map((item, idx) => (
               <motion.div
                 key={item.title + item.date}
@@ -1017,7 +1017,7 @@ function Realisations() {
                               src={src}
                               alt={`${item.title} - ${i + 1}`}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              loading="lazy"
+                              fetchPriority="high"
                             />
                           </CarouselItem>
                         ))}
@@ -1030,7 +1030,7 @@ function Realisations() {
                       src={item.images[0]}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
+                      fetchPriority="high"
                     />
                   )}
                   <div className="absolute top-0 right-0 bg-accent text-primary text-[8px] font-bold px-2 py-1 uppercase tracking-widest shadow-md">
@@ -1247,7 +1247,7 @@ function Domains() {
                             src={src}
                             alt={`${competence.title} - illustration ${index + 1}`}
                             className="h-20 lg:h-40 w-full object-cover"
-                            loading="lazy"
+                            fetchPriority="high"
                           />
                         </CarouselItem>
                       ))}
@@ -1420,7 +1420,7 @@ function Formations() {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-5 lg:gap-10">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 lg:gap-10">
             {FORMATIONS.map((f, idx) => (
               <motion.div
                 key={f.title}
@@ -1439,7 +1439,7 @@ function Formations() {
                             src={src}
                             alt={`${f.title} - ${i + 1}`}
                             className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
-                            loading="lazy"
+                            fetchPriority="high"
                           />
                         </CarouselItem>
                       ))}
