@@ -39,36 +39,36 @@ const NAV_LINKS = [
 ];
 
 const STATS = [
-  { value: "25+", label: "Années d'expérience", icon: Award },
-  { value: "120+", label: "Projets valorisés", icon: TrendingUp },
-  { value: "40+", label: "Partenaires", icon: Handshake },
-  { value: "850+", label: "Chercheurs accompagnés", icon: Users },
+  { value: "562", label: "Enseignants-chercheurs", icon: Users },
+  { value: "33", label: "Départements & Labos", icon: Building2 },
+  { value: "6500+", label: "Agents formés", icon: GraduationCap },
+  { value: "25+", label: "Années d'expertise", icon: Award },
 ];
 
 const MISSIONS = [
   {
     icon: Lightbulb,
-    title: "Valorisation de la Recherche",
+    title: "Rapprocher l'Université du secteur productif",
     description:
-      "Transformer les résultats de la recherche universitaire en solutions concrètes à haute valeur ajoutée pour les secteurs public et privé.",
+      "Sert d'interface entre la sphère éducative et la sphère productive (stratégie EFE) pour répondre aux besoins de formation, expertises et études.",
   },
   {
     icon: Briefcase,
-    title: "Transfert de Technologie",
+    title: "Faire connaître les potentialités de l'Université",
     description:
-      "Faciliter le passage des innovations issues des laboratoires vers le marché à travers des partenariats stratégiques durables.",
+      "Valoriser les ressources humaines et matérielles à travers les prestations fournies par les différentes facultés et laboratoires de l'Université.",
   },
   {
     icon: GraduationCap,
-    title: "Formation & Expertise",
+    title: "Former les cadres aux techniques de gestion",
     description:
-      "Proposer des formations certifiantes et des expertises spécialisées en mobilisant les compétences des enseignants-chercheurs.",
+      "Permettre aux enseignants d'apprendre et comprendre le monde des affaires au contact des entreprises partenaires.",
   },
   {
     icon: FlaskConical,
-    title: "Incubation & Innovation",
+    title: "Études Stratégiques & Prospectives",
     description:
-      "Accompagner les porteurs de projets innovants issus du milieu universitaire vers la création d'entreprise.",
+      "Mise en œuvre d'une politique de développement socio-économique harmonieux et durable pour le pays.",
   },
 ];
 
@@ -114,9 +114,9 @@ const LAB_COMPETENCES = [
 ];
 
 const TEAM_RESOURCES = [
-  "L'ensemble des ressources humaines de l'Université de N'Djamena : 600 enseignants-chercheurs et techniciens répartis dans 33 départements et laboratoires.",
-  "Les spécialistes du secteur productif, scientifique et administratif tchadiens ou étrangers.",
-  "Le partenaire français INSAVALOR, filiale d'INSA de Lyon spécialisée en R&D, valorisation et formation continue.",
+  "L'ensemble des ressources humaines de l'Université de N'Djaména : 562 enseignants-chercheurs et techniciens répartis dans 33 départements et laboratoires.",
+  "Les spécialistes du secteur productif tchadien et étranger.",
+  "Le partenaire français INSAVALOR, filiale de R&D, valorisation et formation continue de l'INSA Lyon.",
 ];
 
 const CAPITAL_DISTRIBUTION = [
@@ -435,11 +435,11 @@ function Navbar() {
       {/* Top bar */}
       <div className="bg-primary hidden lg:block">
         <div className="max-w-7xl mx-auto px-8 py-1.5 flex justify-end gap-6">
-          <a href="tel:+23522514400" className="flex items-center gap-1.5 text-white/80 hover:text-white text-xs font-['Inter'] transition-colors">
-            <Phone size={11} /> +235 22 51 44 00
+          <a href="tel:+23566246581" className="flex items-center gap-1.5 text-white/80 hover:text-white text-xs font-['Inter'] transition-colors">
+            <Phone size={11} /> (00235) 66 24 65 81
           </a>
-          <a href="mailto:contact@univalorsa.td" className="flex items-center gap-1.5 text-white/80 hover:text-white text-xs font-['Inter'] transition-colors">
-            <Mail size={11} /> contact@univalorsa.td
+          <a href="mailto:contact@univalor-tchad.com" className="flex items-center gap-1.5 text-white/80 hover:text-white text-xs font-['Inter'] transition-colors">
+            <Mail size={11} /> contact@univalor-tchad.com
           </a>
         </div>
       </div>
@@ -516,24 +516,23 @@ function Hero() {
             <p className="font-['Inter'] text-[9px] lg:text-xs font-semibold tracking-widest text-accent uppercase mb-2 lg:mb-5">
               Université de N'Djaména — Tchad
             </p>
-            <h1 className="font-['Merriweather'] text-xl lg:text-5xl font-bold text-white leading-tight mb-3 lg:mb-6">
-              La valorisation du savoir universitaire<br />
-              au service du développement
+            <h1 className="font-['Merriweather'] text-2xl lg:text-5xl font-bold text-white leading-tight mb-3 lg:mb-6">
+              UNIVALOR S.A<br />
+              <span className="text-accent text-sm lg:text-3xl block mt-2">Société de valorisation des ressources universitaires</span>
             </h1>
-            <p className="font-['Inter'] text-xs lg:text-base text-white/75 leading-relaxed max-w-xl mb-5 lg:mb-10">
-              UNIVALORSA est la société officielle de valorisation des ressources de l'Université
-              de N'Djaména. Nous transformons la recherche en solutions opérationnelles.
+            <p className="font-['Inter'] text-sm lg:text-base text-white/75 leading-relaxed max-w-xl mb-6 lg:mb-10">
+              Société de droit privé et filiale de l'Université de N'Djaména, UNIVALOR participe au développement économique et technologique du Tchad.
             </p>
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => scrollTo("#missions")}
-                className="inline-flex items-center gap-2 bg-accent text-foreground font-['Inter'] text-[10px] lg:text-sm font-semibold px-4 py-2 lg:px-6 lg:py-3 hover:bg-accent/90 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-foreground font-['Inter'] text-xs lg:text-sm font-bold px-6 py-3 hover:bg-accent/90 transition-colors w-full sm:w-auto"
               >
-                Nos missions <ArrowRight size={12} className="lg:size-[14px]" />
+                Nos missions <ArrowRight size={14} />
               </button>
               <button
                 onClick={() => scrollTo("#apropos")}
-                className="inline-flex items-center gap-2 border border-white/30 text-white font-['Inter'] text-[10px] lg:text-sm font-medium px-4 py-2 lg:px-6 lg:py-3 hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-['Inter'] text-xs lg:text-sm font-medium px-6 py-3 hover:bg-white/10 transition-colors w-full sm:w-auto"
               >
                 En savoir plus
               </button>
@@ -567,15 +566,15 @@ function Hero() {
       {/* Stats strip */}
       <div className="bg-white border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border">
             {STATS.map((s) => (
-              <div key={s.label} className="flex items-center gap-2.5 lg:gap-4 px-3 py-3 lg:px-6 lg:py-6">
-                <div className="w-7 h-7 lg:w-10 lg:h-10 bg-secondary flex items-center justify-center flex-shrink-0">
-                  <s.icon size={14} className="text-primary" />
+              <div key={s.label} className="flex items-center gap-4 px-6 py-5 lg:py-6">
+                <div className="w-10 h-10 bg-secondary flex items-center justify-center flex-shrink-0">
+                  <s.icon size={20} className="text-primary" />
                 </div>
                 <div>
-                  <div className="font-['Merriweather'] text-lg lg:text-2xl font-bold text-primary leading-none">{s.value}</div>
-                  <div className="font-['Inter'] text-[9px] lg:text-xs text-muted-foreground mt-0.5 lg:mt-1">{s.label}</div>
+                  <div className="font-['Merriweather'] text-2xl font-bold text-primary leading-none">{s.value}</div>
+                  <div className="font-['Inter'] text-xs text-muted-foreground mt-1">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -589,7 +588,7 @@ function Hero() {
 // ─── À propos ─────────────────────────────────────────────────────────────────
 function About() {
   return (
-    <section id="apropos" className="py-8 lg:py-20 bg-white">
+    <section id="apropos" className="py-6 lg:py-10 bg-white">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         {/* Section header */}
         <div className="flex items-center gap-2 mb-1.5">
@@ -601,26 +600,45 @@ function About() {
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-14 items-start mt-6 lg:mt-10">
           <div>
             <h2 className="font-['Merriweather'] text-lg lg:text-4xl font-bold text-primary leading-snug mb-3 lg:mb-6">
-              Une institution au cœur de l'innovation
+              UNIVALOR S.A : Une filiale de l'Université de N'Djaména
             </h2>
             <p className="font-['Inter'] text-[11px] lg:text-sm text-muted-foreground leading-relaxed mb-3">
-              Créée sous l'égide de l'Université de N'Djaména, <strong className="text-foreground">UNIVALORSA</strong> est
-              l'interface privilégiée entre la recherche académique et les acteurs économiques.
+              UNIVALOR constitue le plus important centre de formation continue et de valorisation au niveau national. Sa mission est de rapprocher l'Université du secteur productif en servant d'interface.
             </p>
             <p className="font-['Inter'] text-[11px] lg:text-sm text-muted-foreground leading-relaxed mb-5 lg:mb-8">
-              Notre vocation est de mettre le patrimoine scientifique au service des défis du développement.
+              L'Université de N'Djaména compte 7 facultés mobilisables pour vos projets :
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-3 lg:gap-6">
+            <div className="grid sm:grid-cols-2 gap-2 mb-8">
               {[
-                { titre: "Notre Mission", texte: "Valoriser les travaux universitaires pour les secteurs public et privé." },
-                { titre: "Notre Vision", texte: "Faire de l'université un acteur central de l'économie du savoir." },
-              ].map(({ titre, texte }) => (
-                <div key={titre} className="border-l-2 border-primary pl-3">
-                  <h4 className="font-['Merriweather'] font-bold text-primary text-sm lg:text-base mb-0.5 lg:mb-2">{titre}</h4>
-                  <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">{texte}</p>
+                "Faculté des Sciences exactes et appliquées",
+                "Faculté des Sciences de la santé humaine",
+                "Faculté des Sciences économiques et de gestion",
+                "Faculté des Lettres, Langues, arts et communication",
+                "Faculté des Sciences politiques et économiques",
+                "Faculté des Sciences humaines et sociales",
+                "Faculté des Sciences de l'éducation"
+              ].map((faculte) => (
+                <div key={faculte} className="flex items-center gap-2 border-l-2 border-accent pl-3">
+                  <p className="font-['Inter'] text-[9px] lg:text-xs text-muted-foreground leading-tight">{faculte}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="bg-secondary p-4 border border-border">
+              <h4 className="font-['Merriweather'] font-bold text-primary text-sm lg:text-base mb-2">Activités Principales</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {[
+                  "Formation continue",
+                  "Réalisation d'études et conseils",
+                  "Expertises et pilotages de projets",
+                  "Études stratégiques et prospectives"
+                ].map(act => (
+                  <li key={act} className="flex items-center gap-2 text-[10px] lg:text-xs text-muted-foreground">
+                    <div className="w-1 h-1 bg-accent rounded-full" /> {act}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
@@ -657,7 +675,7 @@ function About() {
 // ─── Structure ────────────────────────────────────────────────────────────────
 function Structure() {
   return (
-    <section id="structure" className="py-8 lg:py-24 bg-white overflow-hidden">
+    <section id="structure" className="py-6 lg:py-10 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
@@ -671,44 +689,44 @@ function Structure() {
           </span>
         </motion.div>
         
-        <div className="mt-6 lg:mt-10 mb-10 lg:mb-20">
+        <div className="mt-4 lg:mt-6 mb-6 lg:mb-10">
           <motion.h2 
             initial={{ opacity: 0, x: -15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="font-['Merriweather'] text-lg lg:text-4xl font-bold text-primary leading-snug mb-6 lg:mb-12"
+            className="font-['Merriweather'] text-lg lg:text-3xl font-bold text-primary leading-snug mb-4 lg:mb-6"
           >
             L'organisation institutionnelle
           </motion.h2>
           
-          <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+          <div className="grid lg:grid-cols-12 gap-4 lg:gap-8 items-start">
             <motion.div 
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="lg:col-span-7 bg-secondary p-5 lg:p-10 border border-border relative overflow-hidden"
+              className="lg:col-span-7 bg-secondary p-4 lg:p-6 border border-border relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-8 -mt-8" />
-              <h3 className="font-['Merriweather'] text-base lg:text-xl font-bold text-primary mb-3 lg:mb-6">Statut Juridique</h3>
-              <div className="space-y-3 lg:space-y-6 relative z-10">
-                <p className="font-['Inter'] text-[11px] lg:text-sm text-muted-foreground leading-relaxed">
+              <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full -mr-4 -mt-4" />
+              <h3 className="font-['Merriweather'] text-base lg:text-lg font-bold text-primary mb-2 lg:mb-4">Statut Juridique</h3>
+              <div className="space-y-2 lg:space-y-4 relative z-10">
+                <p className="font-['Inter'] text-[11px] lg:text-xs text-muted-foreground leading-relaxed">
                   Société anonyme au capital de <strong className="text-primary">10 000 000 FCFA</strong>, filiale de l’Université de N’Djamena.
                 </p>
-                <div className="flex items-center gap-3 bg-white p-3 lg:p-5 border border-border shadow-xs">
-                  <div className="w-8 h-8 lg:w-14 lg:h-14 bg-primary flex items-center justify-center text-accent shadow-inner">
-                    <Calendar size={18} lg:size={28} strokeWidth={1.5} />
+                <div className="flex items-center gap-3 bg-white p-3 lg:p-4 border border-border shadow-xs">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-primary flex items-center justify-center text-accent">
+                    <Calendar size={18} lg:size={20} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div className="font-['Inter'] text-[8px] lg:text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-0.5">Fondation</div>
-                    <div className="font-['Merriweather'] text-sm lg:text-xl font-bold text-primary">03 mars 2001</div>
+                    <div className="font-['Inter'] text-[8px] lg:text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-0.5">Fondation</div>
+                    <div className="font-['Merriweather'] text-xs lg:text-base font-bold text-primary">03 mars 2001</div>
                   </div>
                 </div>
               </div>
             </motion.div>
             
             <div className="lg:col-span-5">
-              <h3 className="font-['Merriweather'] text-base lg:text-xl font-bold text-primary mb-4 lg:mb-8">Répartition du Capital</h3>
-              <div className="grid grid-cols-2 gap-2.5 lg:gap-4">
+              <h3 className="font-['Merriweather'] text-base lg:text-lg font-bold text-primary mb-3 lg:mb-4">Répartition du Capital</h3>
+              <div className="grid grid-cols-2 gap-2 lg:gap-3">
                 {CAPITAL_DISTRIBUTION.map((item, idx) => (
                   <motion.div 
                     key={item.stakeholder}
@@ -716,13 +734,13 @@ function Structure() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.05 }}
-                    className="bg-white p-3 lg:p-6 border border-border shadow-xs group relative overflow-hidden"
+                    className="bg-white p-3 lg:p-4 border border-border shadow-xs group relative overflow-hidden"
                   >
-                    <div className="text-accent mb-1.5 lg:mb-4 group-hover:scale-110 transition-transform origin-left">
-                      <item.icon size={20} lg:size={32} strokeWidth={1.5} />
+                    <div className="text-accent mb-1 lg:mb-3 group-hover:scale-110 transition-transform origin-left">
+                      <item.icon size={18} lg:size={24} strokeWidth={1.5} />
                     </div>
-                    <div className="font-['Merriweather'] text-xl lg:text-3xl font-bold text-primary mb-0.5 lg:mb-2">{item.percentage}</div>
-                    <p className="font-['Inter'] text-[8px] lg:text-[11px] text-muted-foreground font-semibold leading-tight uppercase tracking-wider">
+                    <div className="font-['Merriweather'] text-lg lg:text-2xl font-bold text-primary mb-0.5">{item.percentage}</div>
+                    <p className="font-['Inter'] text-[8px] lg:text-[10px] text-muted-foreground font-semibold leading-tight uppercase tracking-wider">
                       {item.stakeholder}
                     </p>
                   </motion.div>
@@ -733,15 +751,15 @@ function Structure() {
         </div>
 
         {/* Organigramme */}
-        <div className="mt-12 lg:mt-32 pb-6 lg:pb-20">
+        <div className="mt-8 lg:mt-12 pb-4 lg:pb-8">
           <motion.div
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="text-center mb-8 lg:mb-20"
+             className="text-center mb-6 lg:mb-10"
           >
-            <h3 className="font-['Merriweather'] text-lg lg:text-3xl font-bold text-primary mb-2.5 lg:mb-4">Structure Organisationnelle</h3>
-            <div className="w-10 lg:w-16 h-1 bg-accent mx-auto" />
+            <h3 className="font-['Merriweather'] text-base lg:text-xl font-bold text-primary mb-2 lg:mb-3">Structure Organisationnelle</h3>
+            <div className="w-8 lg:w-12 h-1 bg-accent mx-auto" />
           </motion.div>
 
           <div className="relative flex flex-col items-center">
@@ -750,17 +768,17 @@ function Structure() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative z-20 w-full max-w-[280px] lg:max-w-sm bg-primary p-5 lg:p-7 shadow-xl border-t-4 border-accent text-center"
+              className="relative z-20 w-[90%] max-w-[280px] bg-primary p-3 lg:p-4 shadow-lg border-t-2 border-accent text-center"
             >
-              <div className="inline-flex p-2.5 lg:p-3.5 bg-white/10 rounded-full text-accent mb-3 lg:mb-5">
-                <ShieldCheck size={24} lg:size={32} />
+              <div className="inline-flex p-1.5 lg:p-2 bg-white/10 rounded-full text-accent mb-2 lg:mb-3">
+                <ShieldCheck size={18} lg:size={20} />
               </div>
-              <h4 className="font-['Merriweather'] text-base lg:text-xl font-bold text-white mb-1 lg:mb-2 tracking-wide">{ORG_CHART.title}</h4>
-              <p className="font-['Inter'] text-[9px] lg:text-[11px] text-white/60 font-bold uppercase tracking-[0.2em]">{ORG_CHART.description}</p>
+              <h4 className="font-['Merriweather'] text-xs lg:text-base font-bold text-white mb-0.5 tracking-wide">{ORG_CHART.title}</h4>
+              <p className="font-['Inter'] text-[7px] lg:text-[9px] text-white/60 font-bold uppercase tracking-widest">{ORG_CHART.description}</p>
             </motion.div>
 
             {/* Link line */}
-            <div className="h-8 lg:h-12 w-0.5 bg-accent/40" />
+            <div className="h-4 lg:h-6 w-0.5 bg-accent/30" />
 
             {/* 2. Direction Générale */}
             <motion.div 
@@ -768,17 +786,17 @@ function Structure() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.05 }}
-              className="relative z-20 w-full max-w-[280px] lg:max-w-sm bg-white p-5 lg:p-7 border-2 border-primary shadow-lg text-center"
+              className="relative z-20 w-[90%] max-w-[280px] bg-white p-3 lg:p-4 border border-primary shadow-md text-center"
             >
-              <div className="inline-flex p-2.5 lg:p-3.5 bg-primary/5 rounded-full text-primary mb-3 lg:mb-5">
-                <Briefcase size={20} lg:size={28} />
+              <div className="inline-flex p-1.5 lg:p-2 bg-primary/5 rounded-full text-primary mb-2 lg:mb-3">
+                <Briefcase size={16} lg:size={18} />
               </div>
-              <h4 className="font-['Merriweather'] text-base lg:text-xl font-bold text-primary mb-1 lg:mb-2 tracking-wide">{ORG_CHART.children[0].title}</h4>
-              <p className="font-['Inter'] text-[9px] lg:text-[11px] text-muted-foreground font-bold uppercase tracking-[0.2em]">{ORG_CHART.children[0].description}</p>
+              <h4 className="font-['Merriweather'] text-xs lg:text-base font-bold text-primary mb-0.5 tracking-wide">{ORG_CHART.children[0].title}</h4>
+              <p className="font-['Inter'] text-[7px] lg:text-[9px] text-muted-foreground font-bold uppercase tracking-widest">{ORG_CHART.children[0].description}</p>
             </motion.div>
 
             {/* Link line to Direction d'Exploitation */}
-            <div className="h-8 lg:h-12 w-0.5 bg-accent/40" />
+            <div className="h-4 lg:h-6 w-0.5 bg-accent/30" />
 
             {/* 3. Direction d'Exploitation */}
             <motion.div 
@@ -786,17 +804,17 @@ function Structure() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="relative z-20 w-full max-w-[280px] lg:max-w-sm bg-white p-5 lg:p-7 border border-border border-l-4 border-l-accent shadow-md text-center"
+              className="relative z-20 w-[85%] max-w-[240px] bg-white p-2.5 lg:p-3 border border-border border-l-2 border-l-accent shadow-sm text-center"
             >
-              <div className="inline-flex p-2 lg:p-3 bg-secondary text-primary mb-3 lg:mb-5">
-                <TrendingUp size={18} lg:size={24} />
+              <div className="inline-flex p-1 lg:p-1.5 bg-secondary text-primary mb-1.5 lg:mb-2">
+                <TrendingUp size={14} lg:size={16} />
               </div>
-              <h4 className="font-['Merriweather'] text-sm lg:text-lg font-bold text-primary mb-1 lg:mb-2 tracking-wide">{ORG_CHART.children[0].child.title}</h4>
-              <p className="font-['Inter'] text-[9px] lg:text-[11px] text-muted-foreground font-bold uppercase tracking-[0.2em]">{ORG_CHART.children[0].child.description}</p>
+              <h4 className="font-['Merriweather'] text-[10px] lg:text-sm font-bold text-primary mb-0.5 tracking-wide">{ORG_CHART.children[0].child.title}</h4>
+              <p className="font-['Inter'] text-[7px] lg:text-[8px] text-muted-foreground font-bold uppercase tracking-widest">{ORG_CHART.children[0].child.description}</p>
             </motion.div>
 
             {/* Link line to Secrétariat */}
-            <div className="h-8 lg:h-12 w-0.5 bg-accent/40" />
+            <div className="h-4 lg:h-6 w-0.5 bg-accent/30" />
 
             {/* 4. Secrétariat */}
             <motion.div 
@@ -804,46 +822,46 @@ function Structure() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="relative z-20 w-full max-w-[280px] lg:max-w-sm bg-white p-5 lg:p-7 border border-border border-l-4 border-l-accent shadow-md text-center"
+              className="relative z-20 w-[85%] max-w-[240px] bg-white p-2.5 lg:p-3 border border-border border-l-2 border-l-accent shadow-sm text-center"
             >
-              <div className="inline-flex p-2 lg:p-3 bg-secondary text-primary mb-3 lg:mb-5">
-                <FileText size={18} lg:size={24} />
+              <div className="inline-flex p-1 lg:p-1.5 bg-secondary text-primary mb-1.5 lg:mb-2">
+                <FileText size={14} lg:size={16} />
               </div>
-              <h4 className="font-['Merriweather'] text-sm lg:text-lg font-bold text-primary mb-1 lg:mb-2 tracking-wide">{ORG_CHART.children[0].child.child.title}</h4>
-              <p className="font-['Inter'] text-[9px] lg:text-[11px] text-muted-foreground font-bold uppercase tracking-[0.2em]">{ORG_CHART.children[0].child.child.description}</p>
+              <h4 className="font-['Merriweather'] text-[10px] lg:text-sm font-bold text-primary mb-0.5 tracking-wide">{ORG_CHART.children[0].child.child.title}</h4>
+              <p className="font-['Inter'] text-[7px] lg:text-[8px] text-muted-foreground font-bold uppercase tracking-widest">{ORG_CHART.children[0].child.child.description}</p>
             </motion.div>
 
             {/* Fork to Actions & Comptabilité */}
-            <div className="h-8 lg:h-12 w-0.5 bg-accent/40 lg:hidden" />
-            <div className="hidden lg:block w-full max-w-4xl h-12 border-t-2 border-x-2 border-accent/40" />
+            <div className="h-4 lg:h-6 w-0.5 bg-accent/30 lg:hidden" />
+            <div className="hidden lg:block w-full max-w-2xl h-6 border-t border-x border-accent/30" />
 
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-12 w-full max-w-5xl mt-0 lg:mt-0">
+            <div className="grid lg:grid-cols-2 gap-3 lg:gap-8 w-full max-w-3xl mt-0">
                {/* 5a. Left: Actions */}
                <motion.div 
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="bg-white p-5 lg:p-8 border border-border border-l-4 border-l-accent shadow-md h-full group"
+                  className="bg-white p-3 lg:p-5 border border-border border-l-2 border-l-accent shadow-sm h-full group"
                >
-                  <div className="flex items-center gap-3 lg:gap-5 mb-4 lg:mb-6">
-                    <div className="p-2 lg:p-3 bg-secondary text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                      <Zap size={18} lg:size={22} />
+                  <div className="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
+                    <div className="p-1 lg:p-1.5 bg-secondary text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <Zap size={14} lg:size={16} />
                     </div>
-                    <h5 className="font-['Merriweather'] font-bold text-primary text-sm lg:text-base leading-tight">
+                    <h5 className="font-['Merriweather'] font-bold text-primary text-[10px] lg:text-xs leading-tight">
                       {ORG_CHART.children[0].child.child.left.title}
                     </h5>
                   </div>
-                  <div className="flex flex-wrap gap-1.5 lg:gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {ORG_CHART.children[0].child.child.left.items.map(item => (
-                      <span key={item} className="px-2 py-1 lg:px-3 lg:py-1.5 bg-secondary text-[8px] lg:text-[10px] font-bold text-primary border border-primary/10">
+                      <span key={item} className="px-1.5 py-0.5 lg:px-2 lg:py-1 bg-secondary text-[7px] lg:text-[9px] font-bold text-primary border border-primary/5">
                         {item}
                       </span>
                     ))}
                   </div>
                </motion.div>
 
-               <div className="lg:hidden h-8 lg:h-12 w-0.5 bg-accent/40 mx-auto" />
+               <div className="lg:hidden h-4 w-0.5 bg-accent/30 mx-auto" />
 
                {/* 5b. Right: Comptabilité Gestion */}
                <motion.div 
@@ -851,17 +869,17 @@ function Structure() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.15 }}
-                  className="bg-white p-5 lg:p-8 border border-border border-l-4 border-l-accent shadow-md h-full group"
+                  className="bg-white p-3 lg:p-5 border border-border border-l-2 border-l-accent shadow-sm h-full group"
                >
-                  <div className="flex items-center gap-3 lg:gap-5 mb-4 lg:mb-6">
-                    <div className="p-2 lg:p-3 bg-secondary text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                      <Calculator size={18} lg:size={22} />
+                  <div className="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
+                    <div className="p-1 lg:p-1.5 bg-secondary text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <Calculator size={14} lg:size={16} />
                     </div>
-                    <h5 className="font-['Merriweather'] font-bold text-primary text-sm lg:text-base leading-tight">
+                    <h5 className="font-['Merriweather'] font-bold text-primary text-[10px] lg:text-xs leading-tight">
                       {ORG_CHART.children[0].child.child.right.title}
                     </h5>
                   </div>
-                  <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">
+                  <p className="font-['Inter'] text-[9px] lg:text-xs text-muted-foreground leading-relaxed">
                     {ORG_CHART.children[0].child.child.right.description}
                   </p>
                </motion.div>
@@ -870,7 +888,7 @@ function Structure() {
         </div>
 
         {/* Procedure Section */}
-        <div className="mt-12 lg:mt-32 pt-10 lg:pt-24 border-t border-border">
+        <div className="mt-8 lg:mt-12 pt-8 lg:pt-12 border-t border-border">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: -15 }}
@@ -956,7 +974,7 @@ function Realisations() {
   const visibleRealisations = showAll ? REALISATIONS : REALISATIONS.slice(0, 3);
 
   return (
-    <section id="realisations" className="py-8 lg:py-24 bg-secondary overflow-hidden">
+    <section id="realisations" className="py-6 lg:py-10 bg-secondary overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
@@ -980,7 +998,7 @@ function Realisations() {
             Nos Réalisations Récentes
           </motion.h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
             {visibleRealisations.map((item, idx) => (
               <motion.div
                 key={item.title + item.date}
@@ -1062,7 +1080,7 @@ function Realisations() {
 // ─── Missions ─────────────────────────────────────────────────────────────────
 function Missions() {
   return (
-    <section id="missions" className="py-8 lg:py-20 bg-secondary">
+    <section id="missions" className="py-6 lg:py-10 bg-secondary">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center gap-2 mb-1.5">
           <div className="w-6 h-1 bg-accent" />
@@ -1079,7 +1097,7 @@ function Missions() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {MISSIONS.map((m, i) => (
             <div
               key={m.title}
@@ -1106,35 +1124,40 @@ function Missions() {
 // ─── Domaines ─────────────────────────────────────────────────────────────────
 function SuccessFactors() {
   return (
-    <section className="py-8 lg:py-20 bg-white border-b border-border">
+    <section className="py-6 lg:py-10 bg-white border-b border-border">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center gap-2 mb-1.5">
           <div className="w-6 h-1 bg-accent" />
           <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-primary uppercase">
-            Documentation
+            Engagement Qualité
           </span>
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-3 mt-4 mb-6 lg:mb-12">
           <h2 className="font-['Merriweather'] text-lg lg:text-4xl font-bold text-primary leading-snug">
-            Facteurs de réussite
+            Prestations & Garanties
           </h2>
           <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground max-w-md leading-relaxed">
-            L'expérience UNIVALOR S.A repose sur une organisation autonome.
+            Quelle que soit la taille de votre entreprise, une solution « sur mesure » est possible.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-8">
           <div className="lg:col-span-7 border border-border bg-secondary p-4 lg:p-8">
             <h3 className="font-['Merriweather'] text-base lg:text-xl font-bold text-primary mb-3 lg:mb-6">
-              Les principes directeurs
+              Nos Prestations de Service
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 lg:gap-4">
-              {SUCCESS_FACTORS.map((factor) => (
-                <div key={factor} className="flex gap-2.5 bg-white border border-border p-2.5 lg:p-4">
-                  <CheckCircle2 size={14} lg:size={16} className="text-primary flex-shrink-0 mt-0.5" />
-                  <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">
-                    {factor}
-                  </p>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { title: "Formation continue", desc: "Formations à la carte ou formations actions (Ingénieurs, cadres, techniciens, secrétaires...)." },
+                { title: "Analyses, expertises, mesures", desc: "Analyses de l'eau, produits pétroliers, pesticides, contrôles de qualité, mesures électriques..." },
+                { title: "Études, enquêtes, pilotage", desc: "Domaines : droit, gestion, marketing, communication, sociologie..." },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4 bg-white border border-border p-4">
+                  <CheckCircle2 size={16} className="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-['Merriweather'] font-bold text-primary text-sm lg:text-base mb-1">{item.title}</h4>
+                    <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -1143,12 +1166,17 @@ function SuccessFactors() {
           <div className="lg:col-span-5 space-y-4 lg:space-y-6">
             <div className="bg-primary text-white p-4 lg:p-8">
               <h3 className="font-['Merriweather'] text-base lg:text-xl font-bold mb-3 lg:mb-5">
-                Une expérience unique
+                Les Garanties UNIVALOR
               </h3>
-              <div className="space-y-2 lg:space-y-4">
-                {UNIQUE_EXPERIENCE.map((item) => (
+              <div className="space-y-4">
+                {[
+                  "Cahier des charges avec la caution de l'Université de N'Djaména.",
+                  "Contrat clair précisant le rôle et les responsabilités de chacun.",
+                  "Devis garantissant la prestation, la confidentialité et les délais.",
+                  "S'appuie sur INSAVALOR, filiale de l'INSA Lyon (France)."
+                ].map((item) => (
                   <div key={item} className="flex gap-2.5">
-                    <ChevronRight size={14} lg:size={16} className="text-accent flex-shrink-0 mt-0.5" />
+                    <ChevronRight size={16} className="text-accent flex-shrink-0 mt-0.5" />
                     <p className="font-['Inter'] text-[10px] lg:text-sm text-white/80 leading-relaxed">
                       {item}
                     </p>
@@ -1159,7 +1187,7 @@ function SuccessFactors() {
 
             <div className="border-l-4 border-accent bg-white p-4 lg:p-7 shadow-xs">
               <p className="font-['Merriweather'] text-base lg:text-2xl font-bold text-primary leading-tight mb-2">
-                "Votre savoir-faire, nous allons le faire savoir."
+                "Une solution sur mesure adaptée à vos contraintes."
               </p>
               <p className="font-['Inter'] text-[9px] lg:text-sm font-semibold uppercase tracking-widest text-primary">
                 UNIVALOR S.A
@@ -1184,7 +1212,7 @@ function Domains() {
   });
 
   return (
-    <section id="domaines" className="py-8 lg:py-20 bg-white">
+    <section id="domaines" className="py-6 lg:py-10 bg-white">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center gap-2 mb-1.5">
           <div className="w-6 h-1 bg-accent" />
@@ -1198,7 +1226,7 @@ function Domains() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 lg:gap-5 mb-8 lg:mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 mb-8 lg:mb-14">
           {sortedCompetences.map((competence) => {
             const images = getCompetenceImages(competence.title);
 
@@ -1327,7 +1355,7 @@ function Domains() {
 
 function Partners() {
   return (
-    <section id="partenaires" className="py-8 lg:py-20 bg-secondary border-y border-border">
+    <section id="partenaires" className="py-6 lg:py-10 bg-secondary border-y border-border">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center gap-2 mb-1.5">
           <div className="w-6 h-1 bg-accent" />
@@ -1361,7 +1389,7 @@ function Partners() {
 // ─── Formations ──────────────────────────────────────────────────────────────
 function Formations() {
   return (
-    <section id="formations" className="py-8 lg:py-24 bg-white overflow-hidden">
+    <section id="formations" className="py-6 lg:py-10 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
@@ -1455,7 +1483,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-8 lg:py-20 bg-secondary border-t border-border">
+    <section id="contact" className="py-6 lg:py-10 bg-secondary border-t border-border">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center gap-2 mb-1.5">
           <div className="w-6 h-1 bg-accent" />
@@ -1473,12 +1501,13 @@ function Contact() {
           {/* Infos */}
           <div className="lg:col-span-4 space-y-4 lg:space-y-6">
             <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">
-              Vous avez un projet ? Notre équipe est à votre disposition.
+              UNIVALOR S.A - FSEA<br />
+              BP 6159 - N'DJAMÉNA - TCHAD
             </p>
             {[
-              { icon: MapPin, label: "Adresse", value: "Université de N'Djaména, Tchad" },
-              { icon: Phone, label: "Téléphone", value: "+235 22 51 44 00" },
-              { icon: Mail, label: "Email", value: "contact@univalorsa.td" },
+              { icon: Phone, label: "Téléphone", value: "(00235) 66 24 65 81" },
+              { icon: FileText, label: "Fax", value: "(00235) 66 27 53 38" },
+              { icon: Mail, label: "Email", value: "contact@univalor-tchad.com" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-start gap-2.5 lg:gap-4">
                 <div className="w-8 h-8 lg:w-10 lg:h-10 bg-primary flex items-center justify-center flex-shrink-0">
@@ -1539,7 +1568,7 @@ function Footer() {
 
   return (
     <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 py-8 lg:py-16">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 py-6 lg:py-10">
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-16 mb-6 lg:mb-12">
           {/* Logo & Info */}
           <div className="lg:col-span-5">
@@ -1552,7 +1581,7 @@ function Footer() {
               />
             </div>
             <p className="font-['Inter'] text-[10px] lg:text-sm text-white/70 leading-relaxed max-w-sm mb-4 lg:mb-6">
-              Société de valorisation des ressources de l'Université de N'Djaména.
+              UNIVALOR S.A - Société de valorisation des ressources de l'Université de N'Djaména.
             </p>
             <div className="flex gap-3">
               <div className="w-8 h-8 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
@@ -1615,7 +1644,7 @@ function Footer() {
           <p className="font-['Inter'] text-[9px] lg:text-[11px] text-white/40 tracking-wider">
             © {new Date().getFullYear()} UNIVALOR S.A — TOUS DROITS RÉSERVÉS
           </p>
-          <span className="font-['Inter'] text-[9px] lg:text-[11px] text-white/40 uppercase">BP 1117, N'DJAMÉNA</span>
+          <span className="font-['Inter'] text-[9px] lg:text-[11px] text-white/40 uppercase">BP 6159, N'DJAMÉNA, TCHAD</span>
         </div>
       </div>
     </footer>
