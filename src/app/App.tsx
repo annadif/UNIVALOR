@@ -649,7 +649,6 @@ function About() {
                 alt="Structure UNIVALORSA"
                 className="w-full h-40 lg:h-72 object-cover border border-border shadow-sm"
                 loading="lazy"
-                decoding="async"
               />
             </div>
             <div className="grid grid-cols-2 gap-2.5 lg:gap-4">
@@ -658,14 +657,12 @@ function About() {
                 alt="Détails structure"
                 className="w-full h-24 lg:h-36 object-cover border border-border shadow-xs"
                 loading="lazy"
-                decoding="async"
               />
               <img
                 src={aboutSmallImg2}
                 alt="Détails structure"
                 className="w-full h-24 lg:h-36 object-cover border border-border shadow-xs"
                 loading="lazy"
-                decoding="async"
               />
             </div>
           </div>
@@ -949,7 +946,6 @@ function Structure() {
                     alt="Planification UNIVALOR" 
                     className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
                     loading="lazy"
-                    decoding="async"
                   />
                 </div>
               </motion.div>
@@ -1002,7 +998,7 @@ function Realisations() {
             Nos Réalisations Récentes
           </motion.h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {visibleRealisations.map((item, idx) => (
               <motion.div
                 key={item.title + item.date}
@@ -1011,7 +1007,7 @@ function Realisations() {
                 transition={{ delay: idx * 0.05 }}
                 className="bg-white border border-border group flex flex-col h-full hover:shadow-xl transition-all duration-500 rounded-sm"
               >
-                <div className="relative overflow-hidden aspect-[4/3] bg-muted">
+                <div className="relative overflow-hidden aspect-video bg-muted">
                   {item.images.length > 1 ? (
                     <Carousel opts={{ loop: true }} className="w-full h-full">
                       <CarouselContent className="-ml-0">
@@ -1022,7 +1018,6 @@ function Realisations() {
                               alt={`${item.title} - ${i + 1}`}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                               loading="lazy"
-                              decoding="async"
                             />
                           </CarouselItem>
                         ))}
@@ -1036,30 +1031,29 @@ function Realisations() {
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
-                      decoding="async"
                     />
                   )}
-                  <div className="absolute top-0 right-0 bg-accent text-primary text-[9px] font-bold px-3 py-1.5 uppercase tracking-widest shadow-md">
+                  <div className="absolute top-0 right-0 bg-accent text-primary text-[8px] font-bold px-2 py-1 uppercase tracking-widest shadow-md">
                     {item.displayDate}
                   </div>
                 </div>
                 
-                <div className="p-5 lg:p-8 flex flex-col flex-1">
-                  <div className="flex items-center gap-1.5 mb-2 lg:mb-4">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
-                    <span className="font-['Inter'] text-[8px] lg:text-[10px] font-bold text-primary uppercase tracking-[0.2em]">
-                      Projet de Valorisation
+                <div className="p-4 lg:p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-1.5 mb-2">
+                    <div className="w-1 h-1 bg-accent rounded-full animate-pulse" />
+                    <span className="font-['Inter'] text-[7px] lg:text-[8px] font-bold text-primary uppercase tracking-[0.2em]">
+                      Valorisation
                     </span>
                   </div>
-                  <h3 className="font-['Merriweather'] text-xs lg:text-base font-bold text-primary leading-relaxed mb-4 lg:mb-6 flex-1">
+                  <h3 className="font-['Merriweather'] text-[10px] lg:text-sm font-bold text-primary leading-tight mb-3 flex-1 line-clamp-2">
                     {item.title}
                   </h3>
-                  <div className="pt-4 lg:pt-6 border-t border-border flex items-center justify-between mt-auto">
-                    <span className="font-['Inter'] text-[9px] lg:text-[11px] text-muted-foreground font-medium">
-                      UNIVALOR S.A · {item.date.split('-')[0]}
+                  <div className="pt-3 border-t border-border flex items-center justify-between mt-auto">
+                    <span className="font-['Inter'] text-[8px] lg:text-[9px] text-muted-foreground font-medium">
+                      UNIVALOR S.A
                     </span>
-                    <div className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                      <ArrowRight size={12} />
+                    <div className="w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <ArrowRight size={10} />
                     </div>
                   </div>
                 </div>
@@ -1067,7 +1061,7 @@ function Realisations() {
             ))}
           </div>
 
-          {!showAll && REALISATIONS.length > 3 && (
+          {!showAll && REALISATIONS.length > 4 && (
             <div className="mt-8 lg:mt-16 text-center">
               <button
                 onClick={() => setShowAll(true)}
@@ -1232,19 +1226,19 @@ function Domains() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-8 mb-8 lg:mb-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-8 lg:mb-14">
           {sortedCompetences.map((competence) => {
             const images = getCompetenceImages(competence.title);
 
             return (
               <article
                 key={competence.title}
-                className="border border-border bg-white p-3 lg:p-6 hover:border-primary/35 hover:shadow-md transition-all duration-200"
+                className="border border-border bg-white p-2.5 lg:p-5 hover:border-primary/35 hover:shadow-md transition-all duration-200"
               >
                 {images.length > 0 && (
                   <Carousel
                     opts={{ loop: images.length > 1 }}
-                    className="mb-3 lg:mb-6 overflow-hidden border border-border"
+                    className="mb-2 lg:mb-5 overflow-hidden border border-border"
                   >
                     <CarouselContent className="-ml-0">
                       {images.map((src, index) => (
@@ -1252,9 +1246,8 @@ function Domains() {
                           <img
                             src={src}
                             alt={`${competence.title} - illustration ${index + 1}`}
-                            className="h-32 lg:h-56 w-full object-cover"
+                            className="h-20 lg:h-40 w-full object-cover"
                             loading="lazy"
-                            decoding="async"
                           />
                         </CarouselItem>
                       ))}
@@ -1447,7 +1440,6 @@ function Formations() {
                             alt={`${f.title} - ${i + 1}`}
                             className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
                             loading="lazy"
-                            decoding="async"
                           />
                         </CarouselItem>
                       ))}
