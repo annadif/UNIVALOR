@@ -649,6 +649,7 @@ function About() {
                 alt="Structure UNIVALORSA"
                 className="w-full h-40 lg:h-72 object-cover border border-border shadow-sm"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="grid grid-cols-2 gap-2.5 lg:gap-4">
@@ -657,12 +658,14 @@ function About() {
                 alt="Détails structure"
                 className="w-full h-24 lg:h-36 object-cover border border-border shadow-xs"
                 loading="lazy"
+                decoding="async"
               />
               <img
                 src={aboutSmallImg2}
                 alt="Détails structure"
                 className="w-full h-24 lg:h-36 object-cover border border-border shadow-xs"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -946,6 +949,7 @@ function Structure() {
                     alt="Planification UNIVALOR" 
                     className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </motion.div>
@@ -971,7 +975,7 @@ function Structure() {
 // ─── Réalisations ────────────────────────────────────────────────────────────
 function Realisations() {
   const [showAll, setShowAll] = useState(false);
-  const visibleRealisations = showAll ? REALISATIONS : REALISATIONS.slice(0, 3);
+  const visibleRealisations = showAll ? REALISATIONS : REALISATIONS.slice(0, 4);
 
   return (
     <section id="realisations" className="py-6 lg:py-10 bg-secondary overflow-hidden">
@@ -998,7 +1002,7 @@ function Realisations() {
             Nos Réalisations Récentes
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-8">
             {visibleRealisations.map((item, idx) => (
               <motion.div
                 key={item.title + item.date}
@@ -1018,6 +1022,7 @@ function Realisations() {
                               alt={`${item.title} - ${i + 1}`}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                               loading="lazy"
+                              decoding="async"
                             />
                           </CarouselItem>
                         ))}
@@ -1031,6 +1036,7 @@ function Realisations() {
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
+                      decoding="async"
                     />
                   )}
                   <div className="absolute top-0 right-0 bg-accent text-primary text-[9px] font-bold px-3 py-1.5 uppercase tracking-widest shadow-md">
@@ -1226,19 +1232,19 @@ function Domains() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 mb-8 lg:mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-8 mb-8 lg:mb-14">
           {sortedCompetences.map((competence) => {
             const images = getCompetenceImages(competence.title);
 
             return (
               <article
                 key={competence.title}
-                className="border border-border bg-white p-2.5 lg:p-5 hover:border-primary/35 hover:shadow-md transition-all duration-200"
+                className="border border-border bg-white p-3 lg:p-6 hover:border-primary/35 hover:shadow-md transition-all duration-200"
               >
                 {images.length > 0 && (
                   <Carousel
                     opts={{ loop: images.length > 1 }}
-                    className="mb-2 lg:mb-5 overflow-hidden border border-border"
+                    className="mb-3 lg:mb-6 overflow-hidden border border-border"
                   >
                     <CarouselContent className="-ml-0">
                       {images.map((src, index) => (
@@ -1246,8 +1252,9 @@ function Domains() {
                           <img
                             src={src}
                             alt={`${competence.title} - illustration ${index + 1}`}
-                            className="h-20 lg:h-40 w-full object-cover"
+                            className="h-32 lg:h-56 w-full object-cover"
                             loading="lazy"
+                            decoding="async"
                           />
                         </CarouselItem>
                       ))}
@@ -1440,6 +1447,7 @@ function Formations() {
                             alt={`${f.title} - ${i + 1}`}
                             className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
                             loading="lazy"
+                            decoding="async"
                           />
                         </CarouselItem>
                       ))}
