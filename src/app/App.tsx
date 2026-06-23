@@ -1503,136 +1503,75 @@ function Formations() {
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 function Footer() {
-  const [form, setForm] = useState({ nom: "", email: "", objet: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-    setForm({ nom: "", email: "", objet: "", message: "" });
-    setTimeout(() => setSent(false), 5000);
-  };
+  const contactItems = [
+    { icon: MapPin, label: "Adresse", value: "UNIVALOR S.A - FSEA, BP 6159 - N'DJAMÉNA" },
+    { icon: Phone, label: "Téléphone", value: "(00235) 66 24 65 81" },
+    { icon: FileText, label: "Fax", value: "(00235) 66 27 53 38" },
+    { icon: Mail, label: "Email", value: "contact@univalor-tchad.com" },
+  ];
 
   return (
     <footer id="contact" className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 py-10 lg:py-16">
-        {/* Contact Section within Footer */}
-        <div className="mb-12 lg:mb-20">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-1 bg-accent" />
-            <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-white uppercase">
-              Contactez-nous
-            </span>
-          </div>
-          
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-            <div className="lg:col-span-5 space-y-6">
-              <h2 className="font-['Merriweather'] text-2xl lg:text-4xl font-bold text-white leading-tight">
-                Une question ? <br /> Parlons de votre projet.
-              </h2>
-              
-              <div className="space-y-4">
-                {[
-                  { icon: MapPin, label: "Adresse", value: "UNIVALOR S.A - FSEA\nBP 6159 - N'DJAMÉNA - TCHAD" },
-                  { icon: Phone, label: "Téléphone", value: "(00235) 66 24 65 81" },
-                  { icon: FileText, label: "Fax", value: "(00235) 66 27 53 38" },
-                  { icon: Mail, label: "Email", value: "contact@univalor-tchad.com" },
-                ].map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <Icon size={18} className="text-accent" />
-                    </div>
-                    <div>
-                      <div className="font-['Inter'] text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">{label}</div>
-                      <div className="font-['Inter'] text-sm text-white/80 whitespace-pre-line leading-relaxed">{value}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 py-8 lg:py-10">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_1.7fr_0.9fr] lg:items-start">
+          <div className="space-y-4">
+            <div className="inline-flex bg-white px-3.5 py-2.5 shadow-sm">
+              <img
+                src={logoImg}
+                alt="Logo UNIVALORSA"
+                className="h-16 lg:h-20 w-auto object-contain"
+                loading="lazy"
+              />
             </div>
+            <p className="font-['Inter'] text-sm text-white/70 leading-relaxed max-w-sm">
+              Société de valorisation des ressources de l'Université de N'Djaména.
+            </p>
+          </div>
 
-            <div className="lg:col-span-7">
-              {sent ? (
-                <div className="bg-white/5 border border-white/10 p-8 lg:p-12 flex flex-col items-center justify-center min-h-[300px] text-center">
-                  <CheckCircle2 size={32} className="text-accent mb-4" />
-                  <h3 className="font-['Merriweather'] text-xl font-bold text-white mb-2">Message envoyé</h3>
-                  <p className="text-white/60 text-sm">Merci, nous vous répondrons dans les plus brefs délais.</p>
+          <div>
+            <h4 className="font-['Inter'] text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-4">
+              Contact
+            </h4>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {contactItems.map(({ icon: Icon, label, value }) => (
+                <div key={label} className="flex items-start gap-3">
+                  <div className="w-8 h-8 border border-white/10 bg-white/5 flex items-center justify-center flex-shrink-0">
+                    <Icon size={15} className="text-accent" />
+                  </div>
+                  <div>
+                    <div className="font-['Inter'] text-[10px] font-semibold text-white/45 uppercase tracking-wider mb-1">
+                      {label}
+                    </div>
+                    <div className="font-['Inter'] text-sm text-white/80 leading-snug">
+                      {value}
+                    </div>
+                  </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 p-6 lg:p-10 space-y-4 lg:space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
-                    <div>
-                      <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Nom *</label>
-                      <input required value={form.nom} onChange={e => setForm({ ...form, nom: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white" />
-                    </div>
-                    <div>
-                      <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Email *</label>
-                      <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Objet *</label>
-                    <input required value={form.objet} onChange={e => setForm({ ...form, objet: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white" />
-                  </div>
-                  <div>
-                    <label className="block font-['Inter'] text-[10px] font-semibold text-white/60 uppercase tracking-wide mb-1.5">Message *</label>
-                    <textarea required rows={4} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full border border-white/20 px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-accent bg-white/5 text-white resize-none" />
-                  </div>
-                  <button type="submit" className="w-full lg:w-auto bg-accent text-primary font-['Inter'] text-sm font-bold px-8 py-4 hover:bg-accent/90 transition-colors">
-                    Envoyer le message
-                  </button>
-                </form>
-              )}
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:text-right">
+            <h4 className="font-['Inter'] text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-4">
+              Informations
+            </h4>
+            <div className="flex flex-col gap-2.5">
+              {['Mentions légales', 'Politique de confidentialité'].map((item) => (
+                <span key={item} className="font-['Inter'] text-sm text-white/65 hover:text-white cursor-pointer transition-colors">
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Footer Info */}
-        <div className="pt-10 lg:pt-16 border-t border-white/10">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
-            <div className="lg:col-span-6">
-              <div className="mb-6 lg:mb-8">
-                <img
-                  src={logoImg}
-                  alt="Logo UNIVALORSA"
-                  className="h-12 lg:h-20 w-auto object-contain brightness-0 invert"
-                  loading="lazy"
-                />
-              </div>
-              <p className="font-['Inter'] text-sm text-white/70 leading-relaxed max-w-lg mb-6 lg:mb-8">
-                UNIVALOR S.A - Société de valorisation des ressources de l'Université de N'Djaména. <br />
-                Le plus important centre de formation continue et de valorisation au niveau national.
-              </p>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer group">
-                  <Globe size={18} className="text-accent group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer group">
-                  <Mail size={18} className="text-accent group-hover:scale-110 transition-transform" />
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 lg:text-right flex flex-col justify-end">
-              <div className="space-y-4">
-                <h4 className="font-['Inter'] text-[10px] font-bold tracking-[0.2em] uppercase text-accent">Informations</h4>
-                <ul className="space-y-2">
-                  {["Mentions légales", "Politique de confidentialité"].map(item => (
-                    <li key={item}>
-                      <span className="font-['Inter'] text-sm text-white/60 hover:text-white cursor-pointer transition-colors">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 lg:mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="font-['Inter'] text-[11px] text-white/40 tracking-wider">
-              © {new Date().getFullYear()} UNIVALOR S.A — TOUS DROITS RÉSERVÉS
-            </p>
-            <span className="font-['Inter'] text-[11px] text-white/40 uppercase tracking-widest">BP 6159, N'DJAMÉNA, TCHAD</span>
-          </div>
+        <div className="mt-8 lg:mt-10 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="font-['Inter'] text-[11px] text-white/45 tracking-wider">
+            © {new Date().getFullYear()} UNIVALOR S.A — TOUS DROITS RÉSERVÉS
+          </p>
+          <span className="font-['Inter'] text-[11px] text-white/45 uppercase tracking-widest">
+            BP 6159, N'DJAMÉNA, TCHAD
+          </span>
         </div>
       </div>
     </footer>
