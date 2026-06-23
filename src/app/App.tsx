@@ -39,7 +39,7 @@ const NAV_LINKS = [
 ];
 
 const STATS = [
-  { value: "562", label: "Enseignants-chercheurs", icon: Users },
+  { value: "600+", label: "Enseignants-chercheurs", icon: Users },
   { value: "33", label: "Départements & Labos", icon: Building2 },
   { value: "6500+", label: "Agents formés", icon: GraduationCap },
   { value: "25+", label: "Années d'expérience", icon: Award },
@@ -570,9 +570,9 @@ function Hero() {
       {/* Stats strip */}
       <div className="bg-white border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border">
             {STATS.map((s) => (
-              <div key={s.label} className="flex items-center gap-4 px-6 py-5 lg:py-6">
+              <div key={s.label} className="flex items-center gap-3 bg-white px-3 py-4 sm:gap-4 sm:px-6 sm:py-5 lg:py-6">
                 <div className="w-10 h-10 bg-secondary flex items-center justify-center flex-shrink-0">
                   <s.icon size={20} className="text-primary" />
                 </div>
