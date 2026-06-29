@@ -30,10 +30,10 @@ const NAV_LINKS = [
   { label: "Accueil", href: "#accueil" },
   { label: "À propos", href: "#apropos" },
   { label: "Structure", href: "#structure" },
+  { label: "Nos Missions", href: "#missions" },
   { label: "Domaines", href: "#domaines" },
   { label: "Formations", href: "#formations" },
   { label: "Réalisations", href: "#realisations" },
-  { label: "Nos Missions", href: "#missions" },
   { label: "Infrastructures", href: "#infrastructures" },
   { label: "Contact", href: "#contact" },
 ];
@@ -150,7 +150,7 @@ const ORG_CHART = {
           },
           right: {
             title: "COMPTABILITÉ GESTION",
-            description: "Des contrats, des départements, des laboratoires",
+            description: "Des contrats, des départements",
             icon: Calculator
           }
         }
@@ -522,7 +522,7 @@ function Hero() {
             </p>
             <h1 className="font-['Merriweather'] text-2xl lg:text-5xl font-bold text-white leading-tight mb-3 lg:mb-6">
               UNIVALOR S.A<br />
-              <span className="text-accent text-sm lg:text-3xl block mt-2">Société de valorisation des ressources universitaires</span>
+              <span className="text-accent text-sm lg:text-3xl block mt-2">Société de valorisation des ressources de l'Université de N'Djaména</span>
             </h1>
             <p className="font-['Inter'] text-sm lg:text-base text-white/75 leading-relaxed max-w-xl mb-6 lg:mb-10">
               Société de droit privé et filiale de l'Université de N'Djaména, UNIVALOR participe au développement économique et technologique du Tchad.
@@ -890,83 +890,6 @@ function Structure() {
             </div>
           </div>
         </div>
-
-        {/* Procedure Section */}
-        <div className="mt-8 lg:mt-12 pt-8 lg:pt-12 border-t border-border">
-          <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: -15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-8 lg:mb-16"
-            >
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <div className="w-6 h-1 bg-accent" />
-                <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-primary uppercase">Méthodologie</span>
-                <div className="w-6 h-1 bg-accent" />
-              </div>
-              <h3 className="font-['Merriweather'] text-lg lg:text-3xl font-bold text-primary mb-3 lg:mb-6 leading-snug">
-                Une Procédure d'Intervention
-              </h3>
-              <p className="font-['Inter'] text-[11px] lg:text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                L’expertise d’UNIVALOR repose sur une collaboration étroite, assurant des solutions sur mesure.
-              </p>
-            </motion.div>
-
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-10 lg:mb-20">
-              <div className="space-y-6 lg:space-y-10 relative">
-                {/* Vertical line connecting numbers */}
-                <div className="absolute left-4 lg:left-5 top-2 bottom-2 w-0.5 bg-primary/5 -translate-x-1/2" />
-                
-                {PROCEDURE_STEPS.map((step, i) => (
-                  <motion.div 
-                    key={step.title}
-                    initial={{ opacity: 0, x: -15 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="flex gap-4 lg:gap-6 group"
-                  >
-                    <div className="relative z-10 flex-shrink-0 w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary flex items-center justify-center text-accent font-bold text-xs lg:text-sm shadow-sm group-hover:scale-110 transition-transform">
-                      {i + 1}
-                    </div>
-                    <div>
-                      <h4 className="font-['Merriweather'] font-bold text-primary text-sm lg:text-lg mb-1 group-hover:text-accent transition-colors">{step.title}</h4>
-                      <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="relative mt-4 lg:mt-0"
-              >
-                <div className="aspect-video lg:aspect-square overflow-hidden border border-border shadow-lg">
-                  <img 
-                    src={methodologyImg} 
-                    alt="Planification UNIVALOR" 
-                    className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
-                    loading="lazy"
-                  />
-                </div>
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-secondary p-6 lg:p-8 border border-border text-center shadow-sm"
-            >
-              <p className="font-['Inter'] text-[11px] lg:text-sm font-medium text-primary leading-relaxed max-w-3xl mx-auto">
-                "Un contrat clair précise le rôle et les responsabilités de chacun."
-              </p>
-            </motion.div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -1122,6 +1045,82 @@ function Missions() {
             </div>
           ))}
         </div>
+
+        {/* Procedure Section */}
+        <div className="mt-6 lg:mt-12 pt-6 lg:pt-12 border-t border-border">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-5 lg:mb-16"
+            >
+              <div className="flex items-center justify-center gap-2 mb-2 lg:mb-3">
+                <div className="w-5 lg:w-6 h-1 bg-accent" />
+                <span className="font-['Inter'] text-[10px] font-semibold tracking-widest text-primary uppercase">Méthodologie</span>
+                <div className="w-5 lg:w-6 h-1 bg-accent" />
+              </div>
+              <h3 className="font-['Merriweather'] text-base lg:text-3xl font-bold text-primary mb-2 lg:mb-6 leading-snug">
+                Une Procédure d'Intervention
+              </h3>
+              <p className="font-['Inter'] text-[11px] lg:text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+                L’expertise d’UNIVALOR repose sur une collaboration étroite, assurant des solutions sur mesure.
+              </p>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-5 lg:gap-16 items-start lg:items-center mb-5 lg:mb-20">
+              <div className="space-y-4 lg:space-y-10 relative">
+                <div className="absolute left-4 lg:left-5 top-2 bottom-2 w-0.5 bg-primary/5 -translate-x-1/2" />
+
+                {PROCEDURE_STEPS.map((step, i) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex gap-3 lg:gap-6 group bg-white lg:bg-transparent border border-border lg:border-0 p-3 lg:p-0"
+                  >
+                    <div className="relative z-10 flex-shrink-0 w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-primary flex items-center justify-center text-accent font-bold text-xs lg:text-sm shadow-sm lg:group-hover:scale-110 transition-transform">
+                      {i + 1}
+                    </div>
+                    <div>
+                      <h4 className="font-['Merriweather'] font-bold text-primary text-xs lg:text-lg mb-1 lg:group-hover:text-accent transition-colors">{step.title}</h4>
+                      <p className="font-['Inter'] text-[10px] lg:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative mt-0"
+              >
+                <div className="aspect-video lg:aspect-square overflow-hidden border border-border shadow-sm lg:shadow-lg">
+                  <img
+                    src={methodologyImg}
+                    alt="Planification UNIVALOR"
+                    className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white p-4 lg:p-8 border border-border text-center shadow-sm"
+            >
+              <p className="font-['Inter'] text-[11px] lg:text-sm font-medium text-primary leading-relaxed max-w-3xl mx-auto">
+                "Un contrat clair précise le rôle et les responsabilités de chacun."
+              </p>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1130,7 +1129,7 @@ function Missions() {
 // ─── Domaines ─────────────────────────────────────────────────────────────────
 function SuccessFactors() {
   return (
-    <section className="py-6 lg:py-10 bg-white border-b border-border">
+    <section id="engagement" className="py-6 lg:py-10 bg-white border-b border-border">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center gap-2 mb-1.5">
           <div className="w-6 h-1 bg-accent" />
@@ -1586,11 +1585,11 @@ export default function App() {
       <Hero />
       <About />
       <Structure />
+      <Missions />
+      <SuccessFactors />
       <Domains />
       <Formations />
       <Realisations />
-      <Missions />
-      <SuccessFactors />
       <Infrastructures />
       <Footer />
     </div>
