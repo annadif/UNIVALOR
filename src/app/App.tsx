@@ -419,6 +419,34 @@ const INFRASTRUCTURES = [
   { img: infraImageModules["/src/img/Infrastructures/AIRE DE RESTAURATION.png"], title: "AIRE DE RESTAURATION" },
 ];
 
+const PRELOAD_IMAGE_SOURCES = [
+  logoImg,
+  computerLabImg,
+  aboutMainImg,
+  aboutSmallImg1,
+  aboutSmallImg2,
+  methodologyImg,
+  ...REALISATIONS.slice(0, 4).flatMap((item) => item.images),
+  ...FORMATIONS.slice(0, 2).flatMap((item) => item.images),
+  ...INFRASTRUCTURES.slice(0, 4).map((item) => item.img),
+].filter(Boolean);
+
+function preloadImages(sources: string[]) {
+  sources.forEach((src) => {
+    if (document.head.querySelector(`link[rel="preload"][as="image"][href="${src}"]`)) return;
+
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = src;
+    document.head.appendChild(link);
+
+    const image = new Image();
+    image.decoding = "async";
+    image.src = src;
+  });
+}
+
 function scrollTo(href: string) {
   document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
 }
@@ -456,6 +484,7 @@ function Navbar() {
             alt="Logo UNIVALORSA"
             className="h-10 w-auto object-contain"
             fetchPriority="high"
+            decoding="async"
           />
         </button>
 
@@ -652,7 +681,9 @@ function About() {
                 src={aboutMainImg}
                 alt="Structure UNIVALORSA"
                 className="w-full h-40 lg:h-72 object-cover border border-border shadow-sm"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
             <div className="grid grid-cols-2 gap-2.5 lg:gap-4">
@@ -660,13 +691,15 @@ function About() {
                 src={aboutSmallImg1}
                 alt="Détails structure"
                 className="w-full h-24 lg:h-36 object-cover border border-border shadow-xs"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
               />
               <img
                 src={aboutSmallImg2}
                 alt="Détails structure"
                 className="w-full h-24 lg:h-36 object-cover border border-border shadow-xs"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
               />
             </div>
           </div>
@@ -1103,7 +1136,9 @@ function Missions() {
                     src={methodologyImg}
                     alt="Planification UNIVALOR"
                     className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
-                    loading="lazy"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 </div>
               </motion.div>
@@ -1519,7 +1554,8 @@ function Footer() {
                 src={logoImg}
                 alt="Logo UNIVALORSA"
                 className="h-16 lg:h-20 w-auto object-contain"
-                loading="lazy"
+                loading="eager"
+                decoding="async"
               />
             </div>
             <p className="font-['Inter'] text-sm text-white/70 leading-relaxed max-w-sm">
@@ -1579,6 +1615,10 @@ function Footer() {
 
 // ─── App ──────────────────────────────────────────────────────────────────────
 export default function App() {
+  useEffect(() => {
+    preloadImages(PRELOAD_IMAGE_SOURCES);
+  }, []);
+
   return (
     <div className="font-['Inter']">
       <Navbar />
